@@ -1,0 +1,34 @@
+{
+    "latex-workshop.latex.toolchain": [
+        {
+          "command": "pdflatex",
+          "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "Ma"
+          ]
+        }, {
+          "command": "bibtex",
+          "args": [
+            "Ma"
+          ]
+        }, {
+          "command": "pdflatex",
+          "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "Ma"
+          ]
+        }, {
+          "command": "pdflatex",
+          "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "Ma"
+          ]
+        }
+      ]
+}
