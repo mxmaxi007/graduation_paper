@@ -1,34 +1,47 @@
 {
-    "latex-workshop.latex.toolchain": [
-        {
-          "command": "pdflatex",
-          "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "Ma"
-          ]
-        }, {
-          "command": "bibtex",
-          "args": [
-            "Ma"
-          ]
-        }, {
-          "command": "pdflatex",
-          "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "Ma"
-          ]
-        }, {
-          "command": "pdflatex",
-          "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "Ma"
-          ]
-        }
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "Ma"
       ]
+    }, {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "Ma"
+      ]
+    }, {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "Ma"
+      ]
+    }, {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "Ma"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [{
+    "name": "graduation_build",
+    "tools": [
+      "xelatex",
+      "bibtex",
+      "xelatex",
+      "xelatex"
+    ]
+  }]
 }
