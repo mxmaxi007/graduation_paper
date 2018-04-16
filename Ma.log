@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  6 APR 2018 15:01
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  15 APR 2018 23:05
 entering extended mode
 **./Ma.tex
 (Ma.tex
@@ -2303,7 +2303,69 @@ LaTeX Warning: Label `fig:xfig1' multiply defined.
 
 LaTeX Warning: Label `equ:lagrange_multiplier' multiply defined.
 
-) (data/chap04.aux) (data/chap05.aux) (data/ack.aux) (data/resume.aux))
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `equ:decision_nb_6' multiply defined.
+
+
+LaTeX Warning: Label `sssec:emo_pair_acc_compare' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+) (data/chap04.aux
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+) (data/chap05.aux
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
+) (data/chap06.aux) (data/ack.aux) (data/resume.aux))
 \openout1 = `Ma.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 28.
@@ -2680,12 +2742,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
  [2] [3]
 File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
 <figures/myfigures/2dim_space.jpg>
- [4]
-
-LaTeX Warning: Reference `cha:emotion_pair_base_framework' on page 5 undefined 
-on input line 57.
-
-[5] [6]) [7]
+ [4] [5] [6]) [7]
 \openout2 = `data/chap02.aux'.
 
  (data/chap02.tex
@@ -2751,57 +2808,96 @@ File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
 <figures/myfigures/2dim_space.jpg>
  [30]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 134.
+put line 143.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.03374pt on input line 147.
+(Font)              scaled to size 9.03374pt on input line 156.
  [31]
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
-input line 162.
+input line 171.
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input 
-line 165.
- [32]) [33]
+line 174.
+ [32]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [33]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 204.
+ [34] [35]
+[36] [37] [38] [39]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [40]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [41]) [42]
 \openout2 = `data/chap04.aux'.
 
-
-(data/chap04.tex
+ (data/chap04.tex
 第4章
-) [34
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+[43
 
 
 
-]
+] [44]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [45]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [46]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [47]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [48]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [49] [50] [51]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [52] [53]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [54]) [55]
 \openout2 = `data/chap05.aux'.
 
- (data/chap05.tex
+
+(data/chap05.tex
 第5章
-) [35
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+[56
 
 
 
-] (Ma.lof)
-\tf@lof=\write5
-\openout5 = `Ma.lof'.
+] [57] [58]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [59] [60]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+ [61]
+File: figures/myfigures/2dim_space.jpg Graphic file (type bmp)
+<figures/myfigures/2dim_space.jpg>
+) [62] [63]
+\openout2 = `data/chap06.aux'.
 
- [36
-
-
-
-
-] (Ma.lot)
-\tf@lot=\write6
-\openout6 = `Ma.lot'.
-
- [37
-
-
-] (Ma.loe)
-\tf@loe=\write7
-\openout7 = `Ma.loe'.
-
- (Ma.bbl [38
+ (data/chap06.tex
+第6章
+[64
 
 
-]
+
+]) [65] (Ma.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 10.53937pt on input line 12.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
@@ -2814,7 +2910,9 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 7.0pt on input line 13.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 5.0pt on input line 13.
-) [39
+) [66
+
+
 
 
 ]
@@ -2823,12 +2921,11 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
  (data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 11.
-
-[40
-
+ [67
 
 
-]) [41
+
+]) [68
 
 
 ] (data/appendix01.tex
@@ -2844,48 +2941,42 @@ line 36.
 \c@endmpdefopctr=\count395
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
 t line 48.
-[42
+[69
 
 
 ]
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 11.04124pt on input line 99.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.06006pt on input line 99.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 6.07271pt on input line 99.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 11.04124pt on input line 108.
- [43]
+ [70]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [44]
+ [71]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
 (Font)              scaled to size 12.045pt on input line 169.
- [45]
+ [72]
 附录 B
-[46
+[73
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [47]
+ [74]
 附录 C
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 262.
 
 ("/Users/max/Library/Application Support/MiKTeX/texmfs/install/tex/latex/psnfss
 /t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) [48
+)) [75
 
 ]
 \openout2 = `data/resume.aux'.
 
- (data/resume.tex [49
+ (data/resume.tex [76
 
 
 
-]) [50]
+]) [77]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf>
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2900,7 +2991,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [51
+ [78
 
 ]
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2909,32 +3000,29 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [52]
-\tf@thm=\write8
-\openout8 = `Ma.thm'.
+ [79]
+\tf@thm=\write5
+\openout5 = `Ma.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 89.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 89.
  (Ma.aux
 (data/chap01.aux) (data/chap02.aux) (data/chap03.aux) (data/chap04.aux)
-(data/chap05.aux) (data/ack.aux) (data/resume.aux))
+(data/chap05.aux) (data/chap06.aux) (data/ack.aux) (data/resume.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 89.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 89.
-
-
-LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 36660 strings out of 429758
- 686441 string characters out of 3180238
- 773995 words of memory out of 3000000
- 39986 multiletter control sequences out of 15000+200000
- 665619 words of font info for 193 fonts, out of 3000000 for 9000
+ 36801 strings out of 429758
+ 692169 string characters out of 3180238
+ 779717 words of memory out of 3000000
+ 40129 multiletter control sequences out of 15000+200000
+ 671227 words of font info for 195 fonts, out of 3000000 for 9000
  1 hyphenation exception out of 8191
- 66i,18n,96p,10436b,688s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,20n,96p,10436b,694s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Ma.pdf (64 pages).
+Output written on Ma.pdf (91 pages).

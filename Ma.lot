@@ -1,2 +1,14 @@
 \contentsline {table}{\numberline {2.1}{\ignorespaces 不同学者对情感的定义\relax }}{9}{table.caption.10}
 \contentsline {table}{\numberline {2.2}{\ignorespaces 常用的情感语音数据库\relax }}{13}{table.caption.13}
+\contentsline {table}{\numberline {3.1}{\ignorespaces IEMOCAP数据库中不同情感的句子数量\relax }}{36}{table.caption.24}
+\contentsline {table}{\numberline {3.2}{\ignorespaces 声学特征列表及其统计函数\relax }}{37}{table.caption.25}
+\contentsline {table}{\numberline {3.3}{\ignorespaces 不同方法的准确率\relax }}{38}{table.caption.26}
+\contentsline {table}{\numberline {3.4}{\ignorespaces 混淆矩阵（全局特征选取 + BLR）\relax }}{39}{table.caption.27}
+\contentsline {table}{\numberline {3.5}{\ignorespaces 混淆矩阵（决策树分层特征选取 + BLR）\relax }}{39}{table.caption.28}
+\contentsline {table}{\numberline {3.6}{\ignorespaces 混淆矩阵（情感对特征选取 + BLR）\relax }}{40}{table.caption.29}
+\contentsline {table}{\numberline {4.1}{\ignorespaces IEMOCAP数据库中不同情感的句子数量\relax }}{52}{table.caption.41}
+\contentsline {table}{\numberline {4.2}{\ignorespaces 语谱图抽取的参数配置\relax }}{52}{table.caption.42}
+\contentsline {table}{\numberline {4.3}{\ignorespaces 不同方法的准确率\relax }}{54}{table.caption.44}
+\contentsline {table}{\numberline {5.1}{\ignorespaces 不同方法的准确率\relax }}{60}{table.caption.48}
+\contentsline {table}{\numberline {5.2}{\ignorespaces 混淆矩阵（定长输入）\relax }}{61}{table.caption.49}
+\contentsline {table}{\numberline {5.3}{\ignorespaces 混淆矩阵（变长输入）\relax }}{61}{table.caption.50}
