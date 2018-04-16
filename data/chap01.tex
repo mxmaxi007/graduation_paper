@@ -17,13 +17,13 @@
 
 \subsection{传统的语音情感识别}
 \label{ssec:classical_emo_rec}
-传统的语音情感识别主要可以分为两个部分，第一部分是抽取和情感信息相关的声学特征，第二部分是使用分类器将特征向量映射到对应的情感类别，图1是传统语音情感识别的流程图。
+传统的语音情感识别主要可以分为两个部分，第一部分是抽取和情感信息相关的声学特征，第二部分是使用分类器将特征向量映射到对应的情感类别，图\ref{fig:traditional_speech_emotion_recognition}是传统语音情感识别的流程图。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm]{myfigures/traditional_speech_emotion_recognition}
+    \caption{传统语音情感识别流程图}
+    \label{fig:traditional_speech_emotion_recognition}
 \end{figure}
 
 特征选择是一个在所有分类问题中都存在的问题，目的是抽取与分类目标最相关的特征子集。语音情感识别作为一个分类任务，在这方面已经有很多的研究工作。首先，韵律学相关的特征已经被广泛的应用在语音情感识别，包括基频相关的特征，能量相关的特征和时长相关的特征。其次，谱相关的特征也在情感识别中起到了重要的作用，例如线性预测系数(Linear Prediction Coefficients, LPC)，线性预测倒谱系数(Linear Prediction Cepstral Coefficients, LPCC)以及梅尔频率倒谱系数(Mel-frequency Cepstral Coefficients, MFCC)。此外，声音质量相关的特征也被证明同情感识别任务相关。
@@ -32,13 +32,13 @@
 
 \subsection{端到端的语音情感识别}
 \label{ssec:end2end_emo_rec}
-在最近几年，深度学习的方法和工具已经被运用到语音处理领域，包括用于特征抽取，分类和回归任务，或者两者兼而有之。一些试验结果显示在原始语音信号上使用深度神经网络提取特征可以比采用人工定义的声学特征得到更好的效果。这导致许多的研究者开始采用端到端的系统，即省略声学特征提取的过程，直接建立从原始语音信号到任务目标的映射，图2是端到端的语音情感识别流程图。
+在最近几年，深度学习的方法和工具已经被运用到语音处理领域，包括用于特征抽取，分类和回归任务，或者两者兼而有之。一些试验结果显示在原始语音信号上使用深度神经网络提取特征可以比采用人工定义的声学特征得到更好的效果。这导致许多的研究者开始采用端到端的系统，即省略声学特征提取的过程，直接建立从原始语音信号到任务目标的映射，图\ref{fig:end2end_speech_emotion_recognition}是端到端的语音情感识别流程图。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm]{myfigures/end2end_speech_emotion_recognition}
+    \caption{端到端语音情感识别流程图}
+    \label{fig:end2end_speech_emotion_recognition}
 \end{figure}
 
 这种端到端的系统最早出现在语音识别领域，最早的工作是Jaitly等人通过受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)从原始语音信号上得到一种有利于语音识别的中间表示。Bhargava等人则是通过堆叠的全连接神经网络从原始语音信号得到瓶颈特征(Bottleneck Feature)，并且取得了和使用梅尔频率倒谱系数相近的效果。 Sainath等人将CNN和LSTM-RNN用在大词表语音识别上。Hannun和Amodei在线性语谱图(Linearly-Spaced Spectrogram)上采用深度神经网络，并搭建出了当时最好的语音识别系统。此外，梅尔语谱图(Mel-Scale Spectrogram)上使用深度学习方法，在说话人识别上也取得了很不错的效果

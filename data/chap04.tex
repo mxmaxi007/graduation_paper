@@ -6,13 +6,13 @@
 
 上一章我们提出的基于情感对的语音情感识别框架取得了不错的效果，但是声学特征仍然采用传统的人工定义的特征，然而这些特征无法保证一定能够反映语音中说话人的情感信息，所以如何从原始语音信号中抽取更为有效的特征仍然是一个值得关注的问题。此外，当前的情感识别都是对一个完整的句子来判断的，尽管可以通过对句子中所有语音帧的声学特征计算统计函数来得到整个句子的特征表示，但这种样会丢失不同语音帧之间的时序信息。因此，如何让模型能够将这种时序信息也考虑进去同样是一个重要的问题。
 
-近年来，深度学习的技术和工具已经飞速地发展，并且在语音信号处理领域也得到了广泛的应用。在许多的工作中，研究者逐渐开始不使用人工定义的声学特征，转而采用深度神经网络来直接从原始的语音信号上抽取相关的特征表示。这是因为深度神经网络可以从原始信号学习出更加适合任务目标的中间表示，进而使得效果提升，这被称为端到端的系统。基于这个原因，本章将构建基于深度神经网络的端到端语音情感识别系统，首先将会将语音句子切分成更短的等长语音段，并抽取这些语音段的语谱图，然后通过卷积神经网络(Convolution Neutral Network, CNN)来从语谱图(Spectrogram)中抽取和情感相关的声学特征，接下来采用循环神经网络(Recurrent Neural Network, RNN)来建模时间序列信息，最终通过全连接神经网络建立和情感类别后验概率之间的映射关系，整个系统的流程如图1.
+近年来，深度学习的技术和工具已经飞速地发展，并且在语音信号处理领域也得到了广泛的应用。在许多的工作中，研究者逐渐开始不使用人工定义的声学特征，转而采用深度神经网络来直接从原始的语音信号上抽取相关的特征表示。这是因为深度神经网络可以从原始信号学习出更加适合任务目标的中间表示，进而使得效果提升，这被称为端到端的系统。基于这个原因，本章将构建基于深度神经网络的端到端语音情感识别系统，首先将会将语音句子切分成更短的等长语音段，并抽取这些语音段的语谱图，然后通过卷积神经网络(Convolution Neutral Network, CNN)来从语谱图(Spectrogram)中抽取和情感相关的声学特征，接下来采用循环神经网络(Recurrent Neural Network, RNN)来建模时间序列信息，最终通过全连接神经网络建立和情感类别后验概率之间的映射关系，整个系统的流程如图\ref{fig:end2end_flow}。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm]{myfigures/end2end_flow}
+    \caption{基于语谱图的端到端语音情感识别系统流程图}
+    \label{fig:end2end_flow}
 \end{figure}
 
 本章剩余的部分是这样安排的：首先我们将介绍CNN的结构，以及如何采用CNN从语谱图上抽取情感相关的特征表示，然后介绍RNN的结构，以及如何通过RNN对时间序列进行建模，最后我们将通过实验对比采用人工定义特征的方法和采用CNN从语谱图抽取的特征的方法在识别效果上的差异。
@@ -23,18 +23,18 @@
 \subsection{语谱图的定义}
 \label{ssec:spectrogram}
 
-语谱图是语音信号的不同频率的能量在时间上的变化，为了方便观测，通常会以图像的方式展示出来。下面的图2给出了一张语谱图，其中横轴代表时间，纵轴代表频率，像素点的灰度值代表能量强度，颜色越深代表能量越高。假设原始语音信号为向量$\mathbf{x}$，滑动窗口的长度为$w$，语谱图可以通过下面的公式计算出来：
+语谱图是语音信号的不同频率的能量在时间上的变化，为了方便观测，通常会以图像的方式展示出来。下面的图\ref{fig:spectrogram_example}给出了一张语谱图，其中横轴代表时间，纵轴代表频率，像素点的灰度值代表能量强度，颜色越深代表能量越高。假设原始语音信号为向量$\mathbf{x}$，滑动窗口的长度为$w$，语谱图可以通过下面的公式计算出来：
 \begin{equation}
 \label{equ:spectrogram}
     Spectrogram(x, w) = |STFT(x, w)|^2
 \end{equation}
 其中$STFT(x, w)$代表对滑动窗口内的信号序列进行短时傅里叶变换(Short-Time Fourier Transform, STFT)，前后两个窗口之间可以有重叠，每一个窗口经过傅里叶变换后得到的向量即为语谱图中每一个时间点对应的向量。当抽样频率大于语音信号频率的两倍时，根据奈奎斯特定理经过傅里叶变换的信号是能够恢复原始信号的，所以语谱图相对于原始语音信号没有任何信息损失，但更容易观测频谱的变化，
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm]{myfigures/spectrogram_example}
+    \caption{语谱图示例}
+    \label{fig:spectrogram_example}
 \end{figure}
 
 语谱图在语音信号处理领域的运用十分广泛，通常被用来观测语音信号在频谱上的变化。在语谱图上，我们可以观测到共振峰，信号强度等信息，相比于原始的语音信号，语谱图可以更直观的观测语音。在本章所构建的端到端的语音情感识别识别系统中，语谱图将作为模型的输入。
@@ -44,40 +44,40 @@
 
 卷积神经网络(Convolution Neutral Network, CNN)是近年来被广泛使用的一种深度神经网络结构，它实际上可以被认为是将一种神经网络结构的进行多份复制，然后将这些复制作用在输入的不同部分。这种网络结构可以处理规模很大的输入，同时又可以保证模型参数的数量保持不变，这使得存储模型所需的空间大大减少。这种重复利用的思想和程序设计中函数的用法很相似，就是编写一个函数的代码，然后在不同的地方调用。
 
-为了方便表述，我们先来看一维的语音信号输入，假设我们的目的将语音信号进行分类，输入被表示为向量$\mathbf{x}=\{x_0,x_1,...x_8\}$，CNN的单一结构，也被称为卷积核，被表示为$A$，每一个卷积核仅仅作用在一部分输入上，最后的分类输出通过一个全连接层$F$来完成，如下图2所示：
+为了方便表述，我们先来看一维的语音信号输入，假设我们的目的将语音信号进行分类，输入被表示为向量$\mathbf{x}=\{x_0,x_1,...x_8\}$，CNN的单一结构，也被称为卷积核，被表示为$A$，每一个卷积核仅仅作用在一部分输入上，最后的分类输出通过一个全连接层$F$来完成，如下图\ref{fig:cnn_1_layer}所示：
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm, width=15cm]{myfigures/cnn_1_layer}
+    \caption{一维卷积神经网络（单卷积层）}
+    \label{fig:cnn_1_layer}
 \end{figure}
 
-通常一个CNN网络会有多个卷积核，每一个卷积核代表对一小段输入的特征表示。此外，CNN可以堆叠多层，假设我们有一组新的卷积核$B$，则可以在$A$上面再叠加一层$B$，以此来得到更高级，更抽象的特征，如下图3所示：
+通常一个CNN网络会有多个卷积核，每一个卷积核代表对一小段输入的特征表示。此外，CNN可以堆叠多层，假设我们有一组新的卷积核$B$，则可以在$A$上面再叠加一层$B$，以此来得到更高级，更抽象的特征，如下图\ref{fig:cnn_2_layer}所示：
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm, width=15cm]{myfigures/cnn_2_layer}
+    \caption{一维卷积神经网络（双卷积层）}
+    \label{fig:cnn_2_layer}
 \end{figure}
 
-CNN通常还会在后面加一层池化层(Pooling Layer)，目的是通过计算输入特征的统计量来保证不变性，这种不变性包括平移，旋转，尺度变化等等。此外，还可以对输入进行降维，并且使得网络能够作用在更大输入段上。最大值池化层(Max-Pooling Layer)是一种被广泛使用的池化层，它的目的是从上一层的每一块输出中的找出最大值，因为通常最大值是最能够反应一块输出的特性，下面的图3给出了最大值池化层的使用方式：
+CNN通常还会在后面加一层池化层(Pooling Layer)，目的是通过计算输入特征的统计量来保证不变性，这种不变性包括平移，旋转，尺度变化等等。此外，还可以对输入进行降维，并且使得网络能够作用在更大输入段上。最大值池化层(Max-Pooling Layer)是一种被广泛使用的池化层，它的目的是从上一层的每一块输出中的找出最大值，因为通常最大值是最能够反应一块输出的特性，下面的图\ref{fig:cnn_layer_pooling}给出了最大值池化层的使用方式：
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm, width=15cm]{myfigures/cnn_layer_pooling}
+    \caption{一维卷积神经网络（卷积层+池化层）}
+    \label{fig:cnn_layer_pooling}
 \end{figure}
 
-前面的例子主要介绍的是CNN如何处理一维的输入向量，但语谱图属于二维的输入矩阵，所以我们需要将网络结构扩展到可以处理二维输入矩阵。假设我们有输入矩阵$\mathbf{X}=\{x_{i,j}, i=0,1,...,8; j=0,1,...,8\}$，则CNN的处理将会变成下面图4的方式：
+前面的例子主要介绍的是CNN如何处理一维的输入向量，但语谱图属于二维的输入矩阵，所以我们需要将网络结构扩展到可以处理二维输入矩阵。假设我们有输入矩阵$\mathbf{X}=\{x_{i,j}, i=0,1,...,8; j=0,1,...,8\}$，则CNN的处理将会变成下面图\ref{fig:cnn_layer_pooling_2dim}的方式：
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm, width=15cm]{myfigures/cnn_layer_pooling_2dim}
+    \caption{二维卷积神经网络（卷积层+池化层）}
+    \label{fig:cnn_layer_pooling_2dim}
 \end{figure}
 
 \subsection{基于语谱图的卷积神经网络特征抽取}
@@ -91,13 +91,13 @@ CNN最早用在计算机视觉领域，因为它的处理机制和人眼感知�
 \subsection{循环神经网络}
 \label{ssec:rnn}
 
-传统的全连接神经网络中，所有的输入都是相互独立的，但是一些任务需要建立序列输入的前后元素之间的关系，例如在语言模型中，需要根据前面出现的词对后面的词进行预测。循环神经网络(Recurrent Neural Network, RNN)的目的是对序列信息进行建模，它对于序列中的每一个元素都进行相同的计算，当前的输出不仅跟当前的输入相关，而且和之前的输入也相关，下面是一个RNN的示意图。
+传统的全连接神经网络中，所有的输入都是相互独立的，但是一些任务需要建立序列输入的前后元素之间的关系，例如在语言模型中，需要根据前面出现的词对后面的词进行预测。循环神经网络(Recurrent Neural Network, RNN)的目的是对序列信息进行建模，它对于序列中的每一个元素都进行相同的计算，当前的输出不仅跟当前的输入相关，而且和之前的输入也相关，下面图\ref{fig:rnn}是一个RNN的示意图。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=10cm, width=15cm]{myfigures/rnn}
+    \caption{循环神经网络}
+    \label{fig:rnn}
 \end{figure}
 
 图中$\mathbf{x}=\{x_t, t=0,1,...,N\}$为输入序列，$\mathbf{s}=\{s_t, t=0,1,...,N\}$为隐状态序列，$\mathbf{o}=\{o_t, t=0,1,...,N\}$为输出序列，$(U, W, V)$是RNN的权重矩阵。序列中元素之间的映射关系可以通过下面的公式表示：
@@ -178,13 +178,13 @@ IEMOCAP数据库中的语音采用16kHz的采样频率，每个句子的时间�
 \subsubsection{深度神经网络结构和参数}
 \label{ssec:end2end_nn_topology}
 
-在实验中我们采用CNN从语谱图中抽取特征表示，然后使用RNN建模语音信号的时序信息，最后通过全连接网络映射到情感类别的后验概率。在尝试了多种的神经网络结构和参数后，下面的图1是我们当前最好效果的网络结构。此外，由于不同情感的句子数量有所差异，所以在训练时需要对误差函数(Loss Function)乘以权重，这个权重和样本对应的情感类别在数据库中的句子数量成反比，这样可以保证模型不会对数量样本多的情感产生偏好。还有就是我们最后需要得到整个句子的情感类别，所以将会对句子所切分的所有语音段计算不同情感的后验概率，然后将所有语音段的输出结果取平均值，然后将平均值最大的那种情感作为最后的识别结果。
+在实验中我们采用CNN从语谱图中抽取特征表示，然后使用RNN建模语音信号的时序信息，最后通过全连接网络映射到情感类别的后验概率。在尝试了多种的神经网络结构和参数后，下面的图\ref{fig:end2end_nn_topology}是我们当前最好效果的网络结构。此外，由于不同情感的句子数量有所差异，所以在训练时需要对误差函数(Loss Function)乘以权重，这个权重和样本对应的情感类别在数据库中的句子数量成反比，这样可以保证模型不会对数量样本多的情感产生偏好。还有就是我们最后需要得到整个句子的情感类别，所以将会对句子所切分的所有语音段计算不同情感的后验概率，然后将所有语音段的输出结果取平均值，然后将平均值最大的那种情感作为最后的识别结果。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=15cm]{myfigures/end2end_nn_topology}
+    \caption{深度神经网络结构}
+    \label{fig:end2end_nn_topology}
 \end{figure}
 
 \subsection{实验结果}
@@ -218,13 +218,28 @@ IEMOCAP数据库中的语音采用16kHz的采样频率，每个句子的时间�
 \subsection{基于卷积神经网络的特征表示}
 \label{ssec:end2end_cnn_feature}
 
-为了进一步观察深度神经网络在语谱图上学习到了什么，我们将最后一层CNN的输出以图像的方式展示出来，下面图3展示了一段中性语音的语谱图和最后一层CNN中两个卷积核的输出值，其中横轴代表时间，纵轴代表频率，红色代表高能量，蓝色代表低能量。从图3右上的激活输出中可以观察到这个卷积核学习到了语谱图中垂直方向的模式信息，而从右下的激活输出中则可以观察到另一个卷积核学习到了语谱图水平方向的模式信息。这些实验数据表明CNN可以从原始语谱图中捕捉到关于关于语音时域和频域的相关信息。
+为了进一步观察深度神经网络在语谱图上学习到了什么，我们将最后一层CNN的输出以图像的方式展示出来，下面图\ref{fig:cnn_spectrogram}和图\ref{fig:cnn_activation}展示了一段中性语音的语谱图和最后一层CNN中两个卷积核的输出值，其中横轴代表时间，纵轴代表频率，红色代表高能量，蓝色代表低能量。从图\ref{fig:cnn_activation}中(a)的激活输出中可以观察到这个卷积核学习到了语谱图中垂直方向的模式信息，而从(b)的激活输出中则可以观察到另一个卷积核学习到了语谱图水平方向的模式信息。这些实验数据表明CNN可以从原始语谱图中捕捉到关于关于语音时域和频域的相关信息。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=5cm]{myfigures/cnn_spectrogram}
+    \caption{原始语谱图}
+    \label{fig:cnn_spectrogram}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[height=5cm]{myfigures/cnn_vertical}
+    \centerline{(a) 垂直方向模式}\medskip
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[height=5cm]{myfigures/cnn_horizontal}
+    \centerline{(b) 水平方向模式}\medskip
+\end{minipage}
+\caption{卷积神经网络激活输出}
+\label{fig:cnn_activation}
 \end{figure}
 
 \section{本章小结}

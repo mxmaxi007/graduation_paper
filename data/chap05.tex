@@ -6,13 +6,21 @@
 
 上一章我们介绍了基于深度神经网络的端到端的语音情感识别系统，但是为了方便神经网络模型处理，一个完整的语音句子被切分成了更小的等长语音段，每一个语音段都被标记为对应句子的情感类别。这样的处理方式会引入一些问题，因为在我们实际的观测中，一个非中性的句子中并不是所有的部分都会包含有明显的情感信息，往往只有一部分语音包含。当我们将句子切分成多个语音段时，可能并不是所有的语音段都包含有情感信息，当仍然会将不包含情感信息的语音段标记为句子的情感类别。这样的数据在训练模型时会对模型造成混淆，因为同样的中性语音段，有的被标记为中性，有的被标记为其他情感，使得模型无法区分哪些应该是真正的中性语音。除了对中性情感的识别会产生影响以外，由于在预测时是所有的语音段来决定句子最终的情感类别，而带情感的句子的中性语音段之间区别也不大，所以也有可能会导致识别时发生混淆。
 
-为了进一步验证我们对于句子中只有部分的语音段包含有明显的情感信息这一猜测，下面图1展示了一个标记为愤怒的句子中前后两个语音段的语谱图，其中横轴代表时间，纵轴代表频率，颜色越深代表能量越高。通常来说，愤怒的语音在各个频段的能量都相对较高，可以看到图中右边的语音段的能量较高，看上去更像一段愤怒的语音，而左边的语音段则看上去不像愤怒语音。通过人工听测这两个语音段，同样也发现左边的语音段听上去包含有更多的愤怒情感，右边的语音段听上去更像中性语音。然而，当我们直接听整个句子时，却发现前面中性语音段可以增强后面的愤怒语音段的愤怒感觉，也就是所谓的欲扬先抑。因此，我们认为设计一种可以处理变长语音段的神经网络结构，从而将整个句子作为输入能够更好地提升模型的识别率。
+为了进一步验证我们对于句子中只有部分的语音段包含有明显的情感信息这一猜测，下面图\ref{fig:angry_spectrogram}展示了一个标记为愤怒的句子中前后两个语音段的语谱图，其中横轴代表时间，纵轴代表频率，颜色越深代表能量越高。通常来说，愤怒的语音在各个频段的能量都相对较高，可以看到图中右边的语音段的能量较高，看上去更像一段愤怒的语音，而左边的语音段则看上去不像愤怒语音。通过人工听测这两个语音段，同样也发现左边的语音段听上去包含有更多的愤怒情感，右边的语音段听上去更像中性语音。然而，当我们直接听整个句子时，却发现前面中性语音段可以增强后面的愤怒语音段的愤怒感觉，也就是所谓的欲扬先抑。因此，我们认为设计一种可以处理变长语音段的神经网络结构，从而将整个句子作为输入能够更好地提升模型的识别率。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb]
+\begin{minipage}{0.48\textwidth}
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=5cm]{myfigures/angry_spectrogram_weak}
+    \centerline{(a) 情感信息弱}\medskip
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[height=5cm]{myfigures/angry_spectrogram_strong}
+    \centerline{(b) 情感信息强}\medskip
+\end{minipage}
+\caption{愤怒句子不同语音段的语谱图}
+\label{fig:angry_spectrogram}
 \end{figure}
 
 本章剩余的部分是这样安排的：首先我们将介绍如何实现能够处理变长输入的深度神经网络模型，然后将介绍变长语音段如何抽取语谱图，最后将通过实验比较定长输入的神经网络和变长输入的神经网络在识别效果上的差异。
@@ -51,11 +59,11 @@
 
 数据库同样是采用IEMOCAP情感语音数据库，其他实验设置和上一章的相同，唯一不同的就是模型的语谱图输入在时域上不是固定大小了，而是和语音句子的长度相关。下面图2是通过实验得到的最佳神经网络结构，其中$T$时语音句子的时间长度，$N$是语谱图的时域长度。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=12cm]{myfigures/var_len_nn_topology}
+    \caption{深度神经网络结构}
+    \label{fig:var_len_nn_topology}
 \end{figure}
 
 \subsection{实验结果}
@@ -127,20 +135,41 @@
 \subsubsection{循环神经网络输出}
 \label{sec:var_len_experiement_rnn}
 
-通过观察神经网络的激活输出能够验证网络学习到的信息，下面的图2展示了一个中性语音的句子通过神经网络后RNN不同节点的激活输出。左边的图片代表定长神经网络，右边的图片代表变长神经网络，其中横轴代表时间，纵轴代表RNN不同的节点，颜色越深代表激活程度越高。从图中可以观察到右边图片中的条纹比左边图片中的要清晰很多。此外，我们也发现特定的情感在特定的节点上有更高的激活值。图3展示了三种不同情感的语音在变长网络中的RNN的不同节点的激活输出，红色方框中的是高激活度的节点。从图中可以发现高兴和愤怒的激活节点比较相似，因为这两种情感的声学表现也比较相似，而悲伤地激活节点和高兴的激活节点就有明显的不同。不过中性情感无法找到特定的激活节点，这可能是因为中性语音没有一种特别明显的声学表现。这些不同情感对应的激活节点可以在变长网络中清楚地观察到，但在定长网络中，由于条纹非常模糊，所以很难观察到这样的现象。这些实验结果进一步证明了变长的方法能够减轻模型对不同情感的混淆。
+通过观察神经网络的激活输出能够验证网络学习到的信息，下面的图\ref{fig:rnn_out_comp}展示了一个中性语音的句子通过神经网络后RNN不同节点的激活输出。左边的图片代表定长神经网络，右边的图片代表变长神经网络，其中横轴代表时间，纵轴代表RNN不同的节点，颜色越深代表激活程度越高。从图中可以观察到右边图片中的条纹比左边图片中的要清晰很多。此外，我们也发现特定的情感在特定的节点上有更高的激活值。图\ref{fig:rnn_out_emotions}展示了三种不同情感的语音在变长网络中的RNN的不同节点的激活输出，红色方框中的是高激活度的节点。从图中可以发现高兴和愤怒的激活节点比较相似，因为这两种情感的声学表现也比较相似，而悲伤地激活节点和高兴的激活节点就有明显的不同。不过中性情感无法找到特定的激活节点，这可能是因为中性语音没有一种特别明显的声学表现。这些不同情感对应的激活节点可以在变长网络中清楚地观察到，但在定长网络中，由于条纹非常模糊，所以很难观察到这样的现象。这些实验结果进一步证明了变长的方法能够减轻模型对不同情感的混淆。
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb]
+\begin{minipage}{0.48\textwidth}
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=5cm]{myfigures/rnn_out_const_neu_comp}
+    \centerline{(a) 定长方法}\medskip
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[height=5cm]{myfigures/rnn_out_var_neu_comp}
+    \centerline{(b) 变长方法}\medskip
+\end{minipage}
+\caption{定长方法和变长方法中循环神经网络的激活输出}
+\label{fig:rnn_out_comp}
 \end{figure}
 
-\begin{figure}[H] % use float package if you want it here
+\begin{figure}[htb]
+\begin{minipage}{0.3\textwidth}
+    \cente  ring
+    \includegraphics[height=4cm]{myfigures/rnn_out_var_ang}
+    \centerline{(a) 愤怒}\medskip
+\end{minipage}\hfill
+\begin{minipage}{0.3\textwidth}
     \centering
-    \includegraphics[height=10cm]{myfigures/2dim_space}
-    \caption{激活度-效价情感空间模型}
-    \label{fig:xfig1}
+    \includegraphics[height=4cm]{myfigures/rnn_out_var_hap}
+    \centerline{(b) 高兴}\medskip
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+    \centering
+    \includegraphics[height=4cm]{myfigures/rnn_out_var_sad}
+    \centerline{(c) 悲伤}\medskip
+\end{minipage}
+\caption{不同情感在循环神经网络上的激活节点}
+\label{fig:rnn_out_emotions}
 \end{figure}
 
 \section{本章小结}
