@@ -1,0 +1,690 @@
+\begin{thebibliography}{108}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+  \urlstyle{same}\fi
+
+\bibitem[Ayadi\ et~al.(2011)Ayadi, Kamel, and Karray]{Ayadi2011Survey}
+Ayadi M~E, Kamel M~S, Karray F.
+\newblock Survey on speech emotion recognition: Features, classification
+  schemes, and databases\allowbreak[M].
+\newblock [S.l.]: Elsevier Science Inc., 2011: 572--587
+
+\bibitem[韩文静\ 等(2014)韩文静, 李海峰, 阮华斌, and
+  马琳]{Han2014Survey}
+韩文静, 李海峰, 阮华斌, 等.
+\newblock 语音情感识别研究进展综述\allowbreak[J].
+\newblock 软件学报, 2014, 25\penalty0 (1): 37--50.
+
+\bibitem[Cowie\ et~al.(2002)Cowie, Douglascowie, Tsapatsoulis, Votsis, Kollias,
+  Fellenz, and Taylor]{Cowie2002Emotion}
+Cowie R, Douglascowie E, Tsapatsoulis N, et~al.
+\newblock Emotion recognition in human-computer interaction\allowbreak[J].
+\newblock IEEE Signal Processing Magazine, 2002, 18\penalty0 (1): 32--80.
+
+\bibitem[Lee\ et~al.(2005)Lee and Narayanan]{Lee2005Toward}
+Lee C~M, Narayanan S~S.
+\newblock Toward detecting emotions in spoken dialogs\allowbreak[J].
+\newblock IEEE Transactions on Speech \& Audio Processing, 2005, 13\penalty0
+  (2): 293--303.
+
+\bibitem[Murray\ et~al.(1993)Murray and Arnott]{Murray1993Toward}
+Murray I~R, Arnott J~L.
+\newblock Toward the simulation of emotion in synthetic speech: A review of the
+  literature on human vocal emotion\allowbreak[J].
+\newblock Journal of the Acoustical Society of America, 1993, 93\penalty0 (2):
+  1097--1108.
+
+\bibitem[Atal(1974)]{Atal1974Effectiveness}
+Atal B~S.
+\newblock Effectiveness of linear prediction characteristics of the speech wave
+  for automatic speaker identification and verification.\allowbreak[J].
+\newblock Journal of the Acoustical Society of America, 1974, 55\penalty0 (6):
+  1304--22.
+
+\bibitem[Banse\ et~al.(1996)Banse and Scherer]{Banse1996Acoustic}
+Banse R, Scherer K~R.
+\newblock Acoustic profiles in vocal emotion expression\allowbreak[J].
+\newblock Journal of Personality \& Social Psychology, 1996, 70\penalty0 (3):
+  614--636.
+
+\bibitem[Bou-Ghazale\ et~al.(2000)Bou-Ghazale and Hansen]{Bou2000A}
+Bou-Ghazale S~E, Hansen J~H~L.
+\newblock A comparative study of traditional and newly proposed features for
+  recognition of speech under stress\allowbreak[J].
+\newblock Speech \& Audio Processing IEEE Transactions on, 2000, 8\penalty0
+  (4): 429--442.
+
+\bibitem[Hernando\ et~al.(1997)Hernando and Nadeu]{Hernando1997Linear}
+Hernando J, Nadeu C.
+\newblock Linear prediction of the one-sided autocorrelation sequence for noisy
+  speech recognition\allowbreak[J].
+\newblock Speech \& Audio Processing IEEE Transactions on, 1997, 5\penalty0
+  (1): 80--84.
+
+\bibitem[Kaiser(1962)]{Kaiser1962Communication}
+Kaiser L.
+\newblock Communication of affects by single vowels\allowbreak[J].
+\newblock Synthese, 1962, 14\penalty0 (4): 300--319.
+
+\bibitem[Rabiner\ et~al.(1999)Rabiner and Juang]{Rabiner1999Fundamentals}
+Rabiner L, Juang B~H.
+\newblock Fundamentals of speech recognition\allowbreak[M].
+\newblock [S.l.]: Tsinghua University Press, 1999: 353--356
+
+\bibitem[Davitz(1964)]{Davitz1964The}
+Davitz J~R.
+\newblock The communication of emotional meaning.\allowbreak[M].
+\newblock [S.l.]: McGraw-Hill, 1964
+
+\bibitem[Rabiner\ et~al.(2007)Rabiner and Juang]{Rabiner2007An}
+Rabiner L~R, Juang B~H.
+\newblock An introduction to hidden markov models\allowbreak[J].
+\newblock Current protocols in bioinformatics / editoral board, Andreas D.
+  Baxevanis ... [et al.], 2007, Appendix 3\penalty0 (Appendix 3): Appendix 3A.
+
+\bibitem[Ephraim\ et~al.(2002)Ephraim and Merhav]{Ephraim2002Hidden}
+Ephraim Y, Merhav N.
+\newblock Hidden markov processes\allowbreak[J].
+\newblock IEEE Transactions on Information Theory, 2002, 48\penalty0 (6):
+  1518--1569.
+
+\bibitem[Schuller\ et~al.(2003)Schuller, Rigoll, and Lang]{Schuller2003Hidden}
+Schuller B, Rigoll G, Lang M.
+\newblock Hidden markov model-based speech emotion
+  recognition\allowbreak[C]//\allowbreak{}International Conference on
+  Multimedia and Expo, 2003. ICME '03. Proceedings.
+\newblock [S.l.: s.n.], 2003: I--401--4 vol.1.
+
+\bibitem[Nogueiras\ et~al.(2012)Nogueiras, Moreno, Bonafonte, and
+  Mariño]{Nogueiras2012Speech}
+Nogueiras A, Moreno A, Bonafonte A, et~al.
+\newblock Speech emotion recognition using hidden markov
+  models\allowbreak[C]//\allowbreak{}Eurospeech 2001 Scandinavia, European
+  Conference on Speech Communication and Technology, INTERSPEECH Event,
+  Aalborg, Denmark, September.
+\newblock [S.l.: s.n.], 2012: 2679--2682.
+
+\bibitem[Kwon(2003)]{Kwon2003Emotion}
+Kwon O~W.
+\newblock Emotion recognition by speech signals\allowbreak[J].
+\newblock EUROSPEECH-2003, 2003: 125--128.
+
+\bibitem[Lee(2004)]{Lee2004Emotion}
+Lee C~M.
+\newblock Emotion recognition based on phoneme classes\allowbreak[J].
+\newblock Proc. ICSLP, Oct. 2004, 2004: 889--892.
+
+\bibitem[Vlassis\ et~al.(2002)Vlassis and Likas]{Vlassis2002A}
+Vlassis N, Likas A.
+\newblock A greedy em algorithm for gaussian mixture learning\allowbreak[J].
+\newblock Neural Processing Letters, 2002, 15\penalty0 (1): 77--87.
+
+\bibitem[Reynolds\ et~al.(1995)Reynolds and Rose]{Reynolds1995Robust}
+Reynolds D~A, Rose R~C.
+\newblock Robust text-independent speaker identification using gaussian mixture
+  speaker models\allowbreak[J].
+\newblock IEEE Trans Speach \& Audio Processing, 1995, 3\penalty0 (1): 72--83.
+
+\bibitem[Rissanen(1978)]{Rissanen1978Modeling}
+Rissanen J.
+\newblock Modeling by shortest data description\allowbreak[J].
+\newblock Automatica, 1978, 14\penalty0 (5): 465--471.
+
+\bibitem[El-Yazeed\ et~al.(2004)El-Yazeed, Gamal, and Ayadi]{El2004On}
+El-Yazeed M~F~A, Gamal M~A~E, Ayadi M~M~H~E.
+\newblock On the determination of optimal model order for gmm-based
+  text-independent speaker identification\allowbreak[J].
+\newblock Eurasip Journal on Advances in Signal Processing, 2004, 2004\penalty0
+  (8): 1--10.
+
+\bibitem[Vlassis\ et~al.(1999)Vlassis and Likas]{Vlassis1999A}
+Vlassis N, Likas A.
+\newblock A kurtosis-based dynamic approach to gaussian mixture
+  modeling\allowbreak[M].
+\newblock [S.l.]: IEEE Press, 1999: 393--399
+
+\bibitem[Breazeal\ et~al.(2002)Breazeal and Aryananda]{Breazeal2002Recognition}
+Breazeal C, Aryananda L.
+\newblock Recognition of affective communicative intent in robot-directed
+  speech\allowbreak[J].
+\newblock Autonomous Robots, 2002, 12\penalty0 (1): 83--104.
+
+\bibitem[Slaney\ et~al.(2003)Slaney and Mcroberts]{Slaney2003Baby}
+Slaney M, Mcroberts G.
+\newblock Baby ears: a recognition system for affective
+  vocalizations\allowbreak[M].
+\newblock [S.l.]: Elsevier Science Publishers B. V., 2003
+
+\bibitem[Burges(2008)]{Burges2008A}
+Burges C~J~C.
+\newblock A tutorial on support vector machines for pattern
+  recognition\allowbreak[J].
+\newblock Data Mining \& Knowledge Discovery, 2008, 2\penalty0 (2): 121--167.
+
+\bibitem[Schuller\ et~al.(2004)Schuller, Rigoll, and Lang]{Schuller2004Speech}
+Schuller B, Rigoll G, Lang M.
+\newblock Speech emotion recognition combining acoustic features and linguistic
+  information in a hybrid support vector machine-belief network
+  architecture\allowbreak[C]//\allowbreak{}IEEE International Conference on
+  Acoustics, Speech, and Signal Processing, 2004. Proceedings.
+\newblock [S.l.: s.n.], 2004: I--577--80 vol.1.
+
+\bibitem[Pierre-Yves(2003)]{Pierre2003The}
+Pierre-Yves O.
+\newblock The production and recognition of emotions in speech: features and
+  algorithms\allowbreak[M].
+\newblock [S.l.]: Academic Press, Inc., 2003: 423--423
+
+\bibitem[Carpenter(1989)]{Carpenter1989Neural}
+Carpenter G~A.
+\newblock Neural network models for pattern recognition and associative
+  memory\allowbreak[M].
+\newblock [S.l.]: Elsevier Science Ltd., 1989: 243--257
+
+\bibitem[Nicholson\ et~al.(2000)Nicholson, Takahashi, and
+  Nakatsu]{Nicholson2000Emotion}
+Nicholson J, Takahashi K, Nakatsu R.
+\newblock Emotion recognition in speech using neural
+  networks\allowbreak[C]//\allowbreak{}International Conference on Neural
+  Information Processing, 1999. Proceedings. ICONIP.
+\newblock [S.l.: s.n.], 2000: 495--501 vol.2.
+
+\bibitem[Crystal(1978)]{Crystal1978Linear}
+Crystal T.
+\newblock Linear prediction of speech\allowbreak[J].
+\newblock Proceedings of the IEEE, 1978, 66\penalty0 (2): 266--267.
+
+\bibitem[Hozjan\ et~al.(2003)Hozjan and Kačič]{Hozjan2003Context}
+Hozjan V, Kačič Z.
+\newblock Context-independent multilingual emotion recognition from speech
+  signals\allowbreak[J].
+\newblock International Journal of Speech Technology, 2003, 6\penalty0 (3):
+  311--320.
+
+\bibitem[Petrushin(2000)]{Petrushin2000EMOTION}
+Petrushin V~A.
+\newblock Emotion recognition in speech signal: Experimental study,
+  development, and application\allowbreak[C]//\allowbreak{}The Proceedings of
+  the.
+\newblock [S.l.: s.n.], 2000: 222--225.
+
+\bibitem[Schuller\ et~al.(2005{\natexlab{a}})Schuller, Lang, and
+  Rigoll]{Schuller2005Robust}
+Schuller B, Lang M, Rigoll G.
+\newblock Robust acoustic speech emotion recognition by ensembles of
+  classifiers\allowbreak[C]//\allowbreak{}31. Jahrestagung Für Akustik, Daga.
+\newblock [S.l.: s.n.], 2005{\natexlab{a}}: 329--330.
+
+\bibitem[Kuncheva(2004)]{Kuncheva2004Combining}
+Kuncheva L~I.
+\newblock Combining pattern classifiers: Methods and algorithms\allowbreak[M].
+\newblock [S.l.]: Wiley-Interscience, 2004
+
+\bibitem[Lugger\ et~al.(2015)Lugger, Janoir, and Yang]{Lugger2015Combining}
+Lugger M, Janoir M~E, Yang B.
+\newblock Combining classifiers with diverse feature sets for robust speaker
+  independent emotion recognition\allowbreak[C]//\allowbreak{}Signal Processing
+  Conference, 2009 European.
+\newblock [S.l.: s.n.], 2015: 1225--1229.
+
+\bibitem[Mashao\ et~al.(2006)Mashao and Skosan]{Mashao2006Combining}
+Mashao D~J, Skosan M.
+\newblock Combining classifier decisions for robust speaker
+  identification\allowbreak[J].
+\newblock Pattern Recognition, 2006, 39\penalty0 (1): 147--155.
+
+\bibitem[Wu\ et~al.(2005)Wu, Mullin, and Rehg]{Wu2005Linear}
+Wu J, Mullin M~D, Rehg J~M.
+\newblock Linear asymmetric classifier for cascade
+  detectors\allowbreak[C]//\allowbreak{}International Conference on Machine
+  Learning.
+\newblock [S.l.: s.n.], 2005: 988--995.
+
+\bibitem[Kuncheva(2002)]{Kuncheva2002A}
+Kuncheva L~I.
+\newblock A theoretical study on six classifier fusion
+  strategies\allowbreak[J].
+\newblock IEEE Transactions on Pattern Analysis \& Machine Intelligence, 2002,
+  24\penalty0 (2): 281--286.
+
+\bibitem[Han\ et~al.(2014)Han, Yu, and Tashev]{Han2014Speech}
+Han K, Yu D, Tashev I.
+\newblock Speech emotion recognition using deep neural network and extreme
+  learning machine\allowbreak[C]//\allowbreak{}INTERSPEECH.
+\newblock [S.l.: s.n.], 2014.
+
+\bibitem[Lee\ et~al.(2015)Lee and Tashev]{Lee2015High}
+Lee J, Tashev I.
+\newblock High-level feature representation using recurrent neural network for
+  speech emotion recognition\allowbreak[M].
+\newblock [S.l.: s.n.], 2015.
+
+\bibitem[Huang\ et~al.(2014)Huang, Dong, Mao, and Zhan]{Huang2014Speech}
+Huang Z, Dong M, Mao Q, et~al.
+\newblock Speech emotion recognition using cnn\allowbreak[C]//\allowbreak{}ACM
+  International Conference on Multimedia.
+\newblock [S.l.: s.n.], 2014: 801--804.
+
+\bibitem[Le\ et~al.(2013)Le and Provost]{Le2013Emotion}
+Le D, Provost E~M.
+\newblock Emotion recognition from spontaneous speech using hidden markov
+  models with deep belief networks\allowbreak[C]//\allowbreak{}Automatic Speech
+  Recognition and Understanding.
+\newblock [S.l.: s.n.], 2013: 216--221.
+
+\bibitem[Rana(2016)]{Rana2016Emotion}
+Rana R.
+\newblock Emotion classification from noisy speech - a deep learning
+  approach\allowbreak[M].
+\newblock [S.l.: s.n.], 2016.
+
+\bibitem[Chernykh\ et~al.(2017)Chernykh, Sterling, and
+  Prihodko]{Chernykh2017Emotion}
+Chernykh V, Sterling G, Prihodko P.
+\newblock Emotion recognition from speech with recurrent neural
+  networks\allowbreak[M].
+\newblock [S.l.: s.n.], 2017.
+
+\bibitem[Jaitly\ et~al.(2011)Jaitly and Hinton]{Jaitly2011Learning}
+Jaitly N, Hinton G.
+\newblock Learning a better representation of speech soundwaves using
+  restricted boltzmann machines\allowbreak[C]//\allowbreak{}IEEE International
+  Conference on Acoustics, Speech and Signal Processing.
+\newblock [S.l.: s.n.], 2011: 5884--5887.
+
+\bibitem[Bhargava\ et~al.(2015)Bhargava and Rose]{Bhargava2015Architectures}
+Bhargava M, Rose R.
+\newblock Architectures for deep neural network based acoustic models defined
+  over windowed speech waveforms\allowbreak[C]//\allowbreak{}INTERSPEECH.
+\newblock [S.l.: s.n.], 2015.
+
+\bibitem[Sainath\ et~al.(2015)Sainath, Vinyals, Senior, and
+  Sak]{Sainath2015Convolutional}
+Sainath T~N, Vinyals O, Senior A, et~al.
+\newblock Convolutional, long short-term memory, fully connected deep neural
+  networks\allowbreak[C]//\allowbreak{}IEEE International Conference on
+  Acoustics, Speech and Signal Processing.
+\newblock [S.l.: s.n.], 2015: 4580--4584.
+
+\bibitem[Amodei\ et~al.(2015)Amodei, Anubhai, Battenberg, Case, Casper,
+  Catanzaro, Chen, Chrzanowski, Coates, and Diamos]{Amodei2015Deep}
+Amodei D, Anubhai R, Battenberg E, et~al.
+\newblock Deep speech 2: End-to-end speech recognition in english and
+  mandarin\allowbreak[J].
+\newblock Computer Science, 2015.
+
+\bibitem[Variani\ et~al.(2014)Variani, Lei, Mcdermott, Moreno, and
+  Gonzalez-Dominguez]{Variani2014Deep}
+Variani E, Lei X, Mcdermott E, et~al.
+\newblock Deep neural networks for small footprint text-dependent speaker
+  verification\allowbreak[C]//\allowbreak{}IEEE International Conference on
+  Acoustics, Speech and Signal Processing.
+\newblock [S.l.: s.n.], 2014: 4052--4056.
+
+\bibitem[Trigeorgis\ et~al.(2016)Trigeorgis, Ringeval, Brueckner, Marchi,
+  Nicolaou, Schuller, and Zafeiriou]{Trigeorgis2016Adieu}
+Trigeorgis G, Ringeval F, Brueckner R, et~al.
+\newblock Adieu features? end-to-end speech emotion recognition using a deep
+  convolutional recurrent network\allowbreak[C]//\allowbreak{}IEEE
+  International Conference on Acoustics, Speech and Signal Processing.
+\newblock [S.l.: s.n.], 2016.
+
+\bibitem[Satt\ et~al.(2017)Satt, Rozenberg, and Hoory]{Satt2017Efficient}
+Satt A, Rozenberg S, Hoory R.
+\newblock Efficient emotion recognition from speech using deep learning on
+  spectrograms\allowbreak[C]//\allowbreak{}INTERSPEECH.
+\newblock [S.l.: s.n.], 2017: 1089--1093.
+
+\bibitem[Busso\ et~al.(2008)Busso, Bulut, Lee, Kazemzadeh, Mower, Kim, Chang,
+  Lee, and Narayanan]{Busso2008IEMOCAP}
+Busso C, Bulut M, Lee C~C, et~al.
+\newblock Iemocap: interactive emotional dyadic motion capture
+  database\allowbreak[J].
+\newblock Language Resources \& Evaluation, 2008, 42\penalty0 (4): 335.
+
+\bibitem[Van~Bezooijen\ et~al.(1983)Van~Bezooijen, Otto, and
+  Heenan]{Van1983Recognition}
+Van~Bezooijen R, Otto S~A, Heenan T~A.
+\newblock Recognition of vocal expressions of emotion: A three-nation study to
+  identify universal characteristics.\allowbreak[J].
+\newblock Journal of Cross-Cultural Psychology, 1983, 14\penalty0 (4):
+  387--406.
+
+\bibitem[Ortony\ et~al.(1990)Ortony and Turner]{Ortony1990What}
+Ortony A, Turner T~J.
+\newblock What's basic about basic emotions?\allowbreak[J].
+\newblock Psychological Review, 1990, 97\penalty0 (3): 315--31.
+
+\bibitem[Robinson\ et~al.(2013)Robinson, Watkins, and
+  Harmonjones]{Robinson2013Handbook}
+Robinson M~D, Watkins E~R, Harmonjones E.
+\newblock Handbook of cognition and emotion: volume~22\allowbreak[M].
+\newblock [S.l.: s.n.], 2013: 237–244.
+
+\bibitem[Campbell(2000)]{Campbell2000Databases}
+Campbell N.
+\newblock Databases of emotional speech\allowbreak[J].
+\newblock Proceedings of Isca Itrw on Speech \& Emotion Developing A Conceptual
+  Framework, 2000.
+
+\bibitem[Mazuka\ et~al.(2015)Mazuka, Igarashi, Martin, and
+  Utsugi]{Mazuka2015Emotions}
+Mazuka R, Igarashi Y, Martin A, et~al.
+\newblock Emotions and speech: some acoustical correlates\allowbreak[J].
+\newblock Laboratory Phonology, 2015, 52\penalty0 (1): 1238--1250.
+
+\bibitem[Batliner\ et~al.(2000)Batliner, Fischer, Huber, Spilker, Noth, and
+  Nats]{Batliner2000Desperately}
+Batliner A, Fischer K, Huber R, et~al.
+\newblock Desperately seeking emotions or: Actors, wizards, and human
+  beings\allowbreak[J].
+\newblock Isca Tutorial \& Research Workshop on Speech \& Emotion, 2000.
+
+\bibitem[Johnstone\ et~al.(2005)Johnstone, Van~Reekum, Hird, Kirsner, and
+  Scherer]{Johnstone2005Affective}
+Johnstone T, Van~Reekum C~M, Hird K, et~al.
+\newblock Affective speech elicited with a computer game.\allowbreak[J].
+\newblock Emotion, 2005, 5\penalty0 (4): 513.
+
+\bibitem[Burkhardt\ et~al.(2005)Burkhardt, Paeschke, Rolfes, Sendlmeier, and
+  Weiss]{Burkhardt2005A}
+Burkhardt F, Paeschke A, Rolfes M, et~al.
+\newblock A database of german emotional
+  speech\allowbreak[C]//\allowbreak{}INTERSPEECH 2005 - Eurospeech, European
+  Conference on Speech Communication and Technology, Lisbon, Portugal,
+  September.
+\newblock [S.l.: s.n.], 2005: 1517--1520.
+
+\bibitem[Hansen\ et~al.(1997)Hansen and Bou-Ghazale]{Hansen1997Getting}
+Hansen J~H~L, Bou-Ghazale S~E.
+\newblock Getting started with susas: a speech under simulated and actual
+  stress database\allowbreak[C]//\allowbreak{}European Conference on Speech
+  Communication and Technology, Eurospeech 1997, Rhodes, Greece, September.
+\newblock [S.l.: s.n.], 1997.
+
+\bibitem[Morrison\ et~al.(2007)Morrison, Wang, and Silva]{Morrison2007Ensemble}
+Morrison D, Wang R, Silva L~C~D.
+\newblock Ensemble methods for spoken emotion recognition in
+  call-centres\allowbreak[J].
+\newblock Speech Communication, 2007, 49\penalty0 (2): 98--112.
+
+\bibitem[Liberman\ et~al.()Liberman, Davis, Grossman, Martey, and
+  Bell]{LibermanEmotional}
+Liberman M, Davis K, Grossman M, et~al.
+\newblock Emotional prosody speech and transcripts\allowbreak[M].
+\newblock [S.l.: s.n.].
+
+\bibitem[Engberg\ et~al.(1997)Engberg, Hansen, Andersen, and
+  Dalsgaard]{Engberg1997Design}
+Engberg I~S, Hansen A~V, Andersen O, et~al.
+\newblock Design, recording and verification of a danish emotional speech
+  database\allowbreak[C]//\allowbreak{}European Conference on Speech
+  Communication and Technology, Eurospeech 1997, Rhodes, Greece, September.
+\newblock [S.l.: s.n.], 1997.
+
+\bibitem[Hozjan\ et~al.(2002)Hozjan, Kacic, Moreno, Bonafonte, and
+  Nogueiras]{Hozjan2002Interface}
+Hozjan V, Kacic Z, Moreno A, et~al.
+\newblock Interface databases: design and collection of a multilingual
+  emotional speech database\allowbreak[M].
+\newblock [S.l.: s.n.], 2002.
+
+\bibitem[Schuller\ et~al.(2005{\natexlab{b}})Schuller, Reiter, Muller,
+  Al-Hames, Lang, and Rigoll]{Schuller2005Speaker}
+Schuller B, Reiter S, Muller R, et~al.
+\newblock Speaker independent speech emotion recognition by ensemble
+  classification\allowbreak[C]//\allowbreak{}IEEE International Conference on
+  Multimedia and Expo.
+\newblock [S.l.: s.n.], 2005{\natexlab{b}}: 864--867.
+
+\bibitem[Fu\ et~al.(2008)Fu, Mao, and Chen]{Fu2008Speaker}
+Fu L, Mao X, Chen L.
+\newblock Speaker independent emotion recognition based on svm/hmms fusion
+  system\allowbreak[C]//\allowbreak{}International Conference on Audio,
+  Language and Image Processing.
+\newblock [S.l.: s.n.], 2008: 61--65.
+
+\bibitem[Schuller(2002)]{Schuller2002Towards}
+Schuller B.
+\newblock Towards intuitive speech interaction by the integration of emotional
+  aspects\allowbreak[J].
+\newblock Proceedings of the Smc Yasmine Hammamet, 2002, 6: 6 pp. vol.6.
+
+\bibitem[Kim\ et~al.(2007)Kim, Hyun, Kim, and Kwak]{Kim2007Speech}
+Kim E~H, Hyun K~H, Kim S~H, et~al.
+\newblock Speech emotion recognition using eigen-fft in clean and noisy
+  environments\allowbreak[C]//\allowbreak{}The IEEE International Symposium on
+  Robot and Human Interactive Communication, 2007. Ro-Man.
+\newblock [S.l.: s.n.], 2007: 689--694.
+
+\bibitem[Zhou\ et~al.(2006)Zhou, Wang, Yang, and Chen]{Zhou2006Speech}
+Zhou J, Wang G, Yang Y, et~al.
+\newblock Speech emotion recognition based on rough set and
+  svm\allowbreak[C]//\allowbreak{}IEEE International Conference on Cognitive
+  Informatics.
+\newblock [S.l.: s.n.], 2006: 4898--4901 Vol. 8.
+
+\bibitem[Pereira(2000)]{Pereira2000Dimensions}
+Pereira C.
+\newblock Dimensions of emotional meaning in speech\allowbreak[M].
+\newblock [S.l.: s.n.], 2000.
+
+\bibitem[Williams\ et~al.(1981)Williams and Stevens]{Williams1981Vocal}
+Williams C~E, Stevens K~N.
+\newblock Vocal correlates of emotional state\allowbreak[M].
+\newblock [S.l.: s.n.], 1981.
+
+\bibitem[Johnstone\ et~al.(2000)Johnstone and Scherer]{Johnstone2000Vocal}
+Johnstone T, Scherer K~R.
+\newblock Vocal communication of emotion\allowbreak[M].
+\newblock [S.l.: s.n.], 2000.
+
+\bibitem[Cowie\ et~al.(2003)Cowie and Cornelius]{Cowie2003Describing}
+Cowie R, Cornelius R~R.
+\newblock Describing the emotional states that are expressed in
+  speech\allowbreak[J].
+\newblock Speech Communication, 2003, 40\penalty0 (1): 5--32.
+
+\bibitem[Ackroyd(1997)]{Ackroyd1997Digital}
+Ackroyd M~H.
+\newblock Digital processing of speech signals\allowbreak[J].
+\newblock Electronics \& Power, 1997, 25\penalty0 (4): 290.
+
+\bibitem[Cahn(1990)]{Cahn1990The}
+Cahn J~E.
+\newblock The generation of affect in synthesized speech\allowbreak[J].
+\newblock Journal of the American Voice I/o Society, 1990, 8: 1--19.
+
+\bibitem[Proakis\ et~al.(1993)Proakis and Hansen]{Proakis1993Discrete}
+Proakis J~G, Hansen J~H.
+\newblock Discrete time processing of speech signals\allowbreak[M].
+\newblock [S.l.]: Macmillan Pub. Co. ;, 1993
+
+\bibitem[Gobl(2003)]{Gobl2003The}
+Gobl C.
+\newblock The role of voice quality in communicating emotion, mood and
+  attitude\allowbreak[M].
+\newblock [S.l.]: Elsevier Science Publishers B. V., 2003: 189--212
+
+\bibitem[Lugger\ et~al.(2007)Lugger and Yang]{Lugger2007The}
+Lugger M, Yang B.
+\newblock The relevance of voice quality features in speaker independent
+  emotion recognition\allowbreak[C]//\allowbreak{}IEEE International Conference
+  on Acoustics, Speech and Signal Processing.
+\newblock [S.l.: s.n.], 2007: IV--17 -- IV--20.
+
+\bibitem[Lugger\ et~al.(2008)Lugger and Yang]{Lugger2008Psychological}
+Lugger M, Yang B.
+\newblock Psychological motivated multi-stage emotion classification exploiting
+  voice quality features\allowbreak[M].
+\newblock [S.l.]: InTech, 2008
+
+\bibitem[Li\ et~al.(2007)Li, Tao, Johnson, and Soltis]{Li2007Stress}
+Li X, Tao J, Johnson M~T, et~al.
+\newblock Stress and emotion classification using jitter and shimmer
+  features\allowbreak[C]//\allowbreak{}IEEE International Conference on
+  Acoustics, Speech and Signal Processing.
+\newblock [S.l.: s.n.], 2007: IV--1081--IV--1084.
+
+\bibitem[Dhillon\ et~al.(2003)Dhillon, Mallela, and Kumar]{Dhillon2003A}
+Dhillon I~S, Mallela S, Kumar R.
+\newblock A divisive information theoretic feature clustering algorithm for
+  text classification\allowbreak[M].
+\newblock [S.l.]: JMLR.org, 2003: 1265--1287
+
+\bibitem[Dietterich(1998)]{Dietterich1998Approximate}
+Dietterich T~G.
+\newblock Approximate statistical tests for comparing supervised classification
+  learning algorithms\allowbreak[M].
+\newblock [S.l.]: MIT Press, 1998: 1895
+
+\bibitem[Ververidis\ et~al.(2008)Ververidis and
+  Kotropoulos]{Ververidis2008Fast}
+Ververidis D, Kotropoulos C.
+\newblock Fast and accurate sequential floating forward feature selection with
+  the bayes classifier applied to speech emotion recognition\allowbreak[J].
+\newblock Signal Processing, 2008, 88\penalty0 (12): 2956--2970.
+
+\bibitem[Yang\ et~al.(1998)Yang and Honavar]{Yang1998Feature}
+Yang J, Honavar V.
+\newblock Feature subset selection using a genetic algorithm\allowbreak[M].
+\newblock [S.l.]: Springer US, 1998: 44 -- 49
+
+\bibitem[Ben-Hur\ et~al.(2003)Ben-Hur and Guyon]{Ben2003Detecting}
+Ben-Hur A, Guyon I.
+\newblock Detecting stable clusters using principal component
+  analysis\allowbreak[J].
+\newblock Methods in Molecular Biology, 2003, 224\penalty0 (224): 159.
+
+\bibitem[Blum\ et~al.(1997)Blum and Langley]{Blum1997Selection}
+Blum A~L, Langley P.
+\newblock Selection of relevant features and examples in machine\allowbreak[J].
+\newblock Artificial Intelligence, 1997, 97\penalty0 (1–2): 245--271.
+
+\bibitem[Dempster(1977)]{Dempster1977Maximum}
+Dempster A~P.
+\newblock Maximum likehood from incomplete data via the em
+  algorithm\allowbreak[J].
+\newblock Journal of the Royal Statistical Society, 1977, 39.
+
+\bibitem[Burges(1998)]{Burges1998A}
+Burges C~J~C.
+\newblock A tutorial on support vector machines for pattern
+  recognition\allowbreak[M].
+\newblock [S.l.]: Kluwer Academic Publishers, 1998: 121--167
+
+\bibitem[Kim\ et~al.(2013)Kim, Lee, and Provost]{Kim2013Deep}
+Kim Y, Lee H, Provost E~M.
+\newblock Deep learning for robust feature generation in audiovisual emotion
+  recognition\allowbreak[C]//\allowbreak{}Acoustics, Speech and Signal
+  Processing (ICASSP), 2013 IEEE International Conference on.
+\newblock [S.l.]: IEEE, 2013: 3687--3691.
+
+\bibitem[Deng\ et~al.(2013)Deng, Zhang, Marchi, and Schuller]{Deng2013Sparse}
+Deng J, Zhang Z, Marchi E, et~al.
+\newblock Sparse autoencoder-based feature transfer learning for speech emotion
+  recognition\allowbreak[C]//\allowbreak{}Affective Computing and Intelligent
+  Interaction (ACII), 2013 Humaine Association Conference on.
+\newblock [S.l.]: IEEE, 2013: 511--516.
+
+\bibitem[Lee\ et~al.(2009)Lee, Mower, Busso, Lee, and
+  Narayanan]{Lee2009Emotion}
+Lee C~C, Mower E, Busso C, et~al.
+\newblock Emotion recognition using a hierarchical binary decision tree
+  approach\allowbreak[C]//\allowbreak{}INTERSPEECH.
+\newblock [S.l.: s.n.], 2009.
+
+\bibitem[Liu\ et~al.(1999)Liu and Yao]{Liu1999Ensemble}
+Liu Y, Yao X.
+\newblock Ensemble learning via negative correlation\allowbreak[J].
+\newblock Neural Networks, 1999, 12\penalty0 (10): 1399--1404.
+
+\bibitem[Liaw\ et~al.(2002)Liaw, Wiener, et~al.]{Liaw2002Classification}
+Liaw A, Wiener M, et~al.
+\newblock Classification and regression by randomforest\allowbreak[J].
+\newblock R news, 2002, 2\penalty0 (3): 18--22.
+
+\bibitem[R{\"a}tsch\ et~al.(2001)R{\"a}tsch, Onoda, and
+  M{\"u}ller]{Ratsch2001Soft}
+R{\"a}tsch G, Onoda T, M{\"u}ller K~R.
+\newblock Soft margins for adaboost\allowbreak[J].
+\newblock Machine learning, 2001, 42\penalty0 (3): 287--320.
+
+\bibitem[Weston\ et~al.(2003)Weston and Tipping]{Weston2003Use}
+Weston J, Tipping M.
+\newblock Use of the zero norm with linear models and kernel
+  methods\allowbreak[J].
+\newblock Journal of Machine Learning Research, 2003, 3\penalty0 (2003):
+  1439--1461.
+
+\bibitem[Forman(2003)]{Forman2003An}
+Forman G.
+\newblock An extensive empirical study of feature selection metrics for text
+  classification\allowbreak[M].
+\newblock [S.l.]: JMLR.org, 2003: 1289--1305
+
+\bibitem[Bekkerman\ et~al.(2003)Bekkerman, Ran, Tishby, and
+  Winter]{Bekkerman2003Distributional}
+Bekkerman R, Ran E~Y, Tishby N, et~al.
+\newblock Distributional word clusters vs. words for text
+  categorization\allowbreak[J].
+\newblock Journal of Machine Learning Research, 2003, 3: 1183--1208.
+
+\bibitem[Kohavi\ et~al.(1997)Kohavi and John]{Kohavi1997Wrappers}
+Kohavi R, John G.
+\newblock Wrappers for feature selection\allowbreak[J].
+\newblock Artificial Intelligence, 1997.
+
+\bibitem[Torkkola(2003)]{Torkkola2003Feature}
+Torkkola K.
+\newblock Feature extraction by non parametric mutual information
+  maximization\allowbreak[J].
+\newblock Journal of Machine Learning Research, 2003, 3\penalty0 (3):
+  1415--1438.
+
+\bibitem[Barker(1998)]{Barker1998Pattern}
+Barker L.
+\newblock Pattern classification\allowbreak[J].
+\newblock Pattern Analysis \& Applications, 1998, 1\penalty0 (2): 142--143.
+
+\bibitem[Jolliffe(1986)]{Jolliffe1986Principal}
+Jolliffe I~T.
+\newblock Principal component analysis and factor
+  analysis\allowbreak[M]//\allowbreak{}Principal component analysis.
+\newblock [S.l.]: Springer, 1986: 115--128
+
+\bibitem[Golub\ et~al.(1970)Golub and Reinsch]{Golub1970Singular}
+Golub G~H, Reinsch C.
+\newblock Singular value decomposition and least squares
+  solutions\allowbreak[J].
+\newblock Numerische mathematik, 1970, 14\penalty0 (5): 403--420.
+
+\bibitem[Mika\ et~al.(1999)Mika, Ratsch, Weston, Scholkopf, and
+  Mullers]{Mika1999Fisher}
+Mika S, Ratsch G, Weston J, et~al.
+\newblock Fisher discriminant analysis with
+  kernels\allowbreak[C]//\allowbreak{}Neural networks for signal processing IX,
+  1999. Proceedings of the 1999 IEEE signal processing society workshop.
+\newblock [S.l.]: Ieee, 1999: 41--48.
+
+\bibitem[Genkin\ et~al.(2007)Genkin, Lewis, and Madigan]{Genkin2007Large}
+Genkin A, Lewis D~D, Madigan D.
+\newblock Large-scale bayesian logistic regression for text
+  categorization\allowbreak[J].
+\newblock Technometrics, 2007, 49\penalty0 (3): 291--304.
+
+\bibitem[Dasarathy(1994)]{Dasarathy1994Decision}
+Dasarathy B~V.
+\newblock Decision fusion: volume 1994\allowbreak[M].
+\newblock [S.l.]: IEEE Computer Society Press Los Alamitos, CA, 1994
+
+\bibitem[薛瑞尼(2017)]{thuthesis}
+薛瑞尼.
+\newblock \thuthesis: 清华大学学位论文模板\allowbreak[EB/OL].
+\newblock 2017.
+\newblock \url{https://github.com/xueruini/thuthesis}.
+
+\end{thebibliography}
