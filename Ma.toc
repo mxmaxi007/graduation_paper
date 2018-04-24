@@ -57,24 +57,24 @@
 \contentsline {subsubsection}{\numberline {4.4.1.3}深度神经网络结构和参数}{48}{subsubsection.4.4.1.3}
 \contentsline {subsection}{\numberline {4.4.2}实验结果}{49}{subsection.4.4.2}
 \contentsline {subsubsection}{\numberline {4.4.2.1}准确率对比}{49}{subsubsection.4.4.2.1}
-\contentsline {subsubsection}{\numberline {4.4.2.2}基于卷积神经网络的特征表示}{49}{subsubsection.4.4.2.2}
+\contentsline {subsubsection}{\numberline {4.4.2.2}基于卷积神经网络的特征表示}{50}{subsubsection.4.4.2.2}
 \contentsline {section}{\numberline {4.5}本章小结}{50}{section.4.5}
-\contentsline {chapter}{\numberline {第5章}基于变长语音段的情感识别}{51}{chapter.5}
-\contentsline {section}{\numberline {5.1}本章引论}{51}{section.5.1}
-\contentsline {section}{\numberline {5.2}变长语音段的语谱图抽取}{52}{section.5.2}
-\contentsline {section}{\numberline {5.3}变长神经网络结构}{52}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}变长卷积神经网络}{52}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}变长循环神经网络}{53}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}实验结果及分析}{53}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}实验设置}{54}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}实验结果}{54}{subsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.2.1}准确率对比}{54}{subsubsection.5.4.2.1}
-\contentsline {subsubsection}{\numberline {5.4.2.2}循环神经网络输出}{55}{subsubsection.5.4.2.2}
-\contentsline {section}{\numberline {5.5}本章小结}{56}{section.5.5}
-\contentsline {chapter}{\numberline {第6章}总结与展望}{58}{chapter.6}
-\contentsline {section}{\numberline {6.1}本文工作总结}{58}{section.6.1}
-\contentsline {section}{\numberline {6.2}未来工作展望}{59}{section.6.2}
-\contentsline {chapter}{参考文献}{60}{section*.50}
-\contentsline {chapter}{致\hspace {1em}谢}{66}{section*.52}
-\contentsline {chapter}{声\hspace {1em}明}{67}{section*.54}
-\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{68}{section*.56}
+\contentsline {chapter}{\numberline {第5章}基于变长语音段的情感识别}{52}{chapter.5}
+\contentsline {section}{\numberline {5.1}本章引论}{52}{section.5.1}
+\contentsline {section}{\numberline {5.2}变长语音段的语谱图抽取}{53}{section.5.2}
+\contentsline {section}{\numberline {5.3}变长神经网络结构}{53}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}变长卷积神经网络}{53}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}变长循环神经网络}{54}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}实验结果及分析}{54}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}实验设置}{55}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}实验结果}{55}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}准确率对比}{55}{subsubsection.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.2.2}循环神经网络输出}{56}{subsubsection.5.4.2.2}
+\contentsline {section}{\numberline {5.5}本章小结}{57}{section.5.5}
+\contentsline {chapter}{\numberline {第6章}总结与展望}{59}{chapter.6}
+\contentsline {section}{\numberline {6.1}本文工作总结}{59}{section.6.1}
+\contentsline {section}{\numberline {6.2}未来工作展望}{60}{section.6.2}
+\contentsline {chapter}{参考文献}{61}{section*.50}
+\contentsline {chapter}{致\hspace {1em}谢}{67}{section*.52}
+\contentsline {chapter}{声\hspace {1em}明}{68}{section*.54}
+\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{69}{section*.56}

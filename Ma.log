@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  20 APR 2018 21:57
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  24 APR 2018 16:22
 entering extended mode
 **./Ma.tex
 (Ma.tex
@@ -2779,7 +2779,7 @@ File: figures/myfigures/cnn_vertical.jpg Graphic file (type bmp)
 <figures/myfigures/cnn_vertical.jpg>
 File: figures/myfigures/cnn_horizontal.jpg Graphic file (type bmp)
 <figures/myfigures/cnn_horizontal.jpg>
-) [50]
+) [50] [51]
 \openout2 = `data/chap05.aux'.
 
  (data/chap05.tex
@@ -2798,14 +2798,14 @@ Overfull \hbox (8.49458pt too wide) in paragraph at lines 19--21
  [][] 
  []
 
-[51
+[52
 
 
 
-] [52] [53]
+] [53] [54]
 File: figures/myfigures/var_len_nn_topology.pdf Graphic file (type pdf)
 <use figures/myfigures/var_len_nn_topology.pdf>
- [54] [55]
+ [55] [56]
 File: figures/myfigures/rnn_out_const_neu_comp.jpg Graphic file (type bmp)
 <figures/myfigures/rnn_out_const_neu_comp.jpg>
 
@@ -2826,16 +2826,16 @@ File: figures/myfigures/rnn_out_var_hap.jpg Graphic file (type bmp)
 <figures/myfigures/rnn_out_var_hap.jpg>
 File: figures/myfigures/rnn_out_var_sad.jpg Graphic file (type bmp)
 <figures/myfigures/rnn_out_var_sad.jpg>
-) [56] [57]
+) [57] [58]
 \openout2 = `data/chap06.aux'.
 
  (data/chap06.tex
 第6章
-[58
+[59
 
 
 
-]) [59] (Ma.bbl [60
+]) [60] (Ma.bbl [61
 
 
 
@@ -2843,7 +2843,7 @@ File: figures/myfigures/rnn_out_var_sad.jpg Graphic file (type bmp)
 ]
 Missing character: There is no č in font ntx-Regular-tlf-t1!
 Missing character: There is no č in font ntx-Regular-tlf-t1!
- [61] [62] [63] [64]
+ [62] [63] [64] [65]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 10.53937pt on input line 686.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
@@ -2856,17 +2856,17 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 7.0pt on input line 688.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 5.0pt on input line 688.
-) [65]
+) [66]
 \openout2 = `data/ack.aux'.
 
  (data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 10.
- [66
+ [67
 
 
 
-]) [67
+]) [68
 
 
 ]
@@ -2879,7 +2879,7 @@ Underfull \hbox (badness 1242) in paragraph at lines 15--16
 |\TU/SimSun(0)/m/n/12.045 “\T1/ntxtlf/m/n/12.045 Speech
  []
 
-) [68
+) [69
 
 
 
@@ -2909,4 +2909,4 @@ Here is how much of TeX's memory you used:
  1 hyphenation exception out of 8191
  66i,20n,96p,10436b,798s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Ma.pdf (81 pages).
+Output written on Ma.pdf (82 pages).
