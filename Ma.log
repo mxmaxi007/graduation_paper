@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.3.11)  24 APR 2018 19:12
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6630 64-bit) (preloaded format=xelatex 2018.3.11)  27 APR 2018 00:04
 entering extended mode
 **./Ma.tex
 (Ma.tex
@@ -2478,10 +2478,14 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 \tf@toc=\write4
 \openout4 = `Ma.toc'.
 
- [7]
+ (data/denotation.tex [7]) [8
+
+
+]
 \openout2 = `data/chap01.aux'.
 
- (data/chap01.tex
+
+(data/chap01.tex
 第1章
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 12.64714pt on input line 4.
@@ -2745,12 +2749,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 37080 strings out of 427836
- 694610 string characters out of 3153424
- 786766 words of memory out of 3000000
- 40518 multiletter control sequences out of 15000+200000
+ 37087 strings out of 427836
+ 694771 string characters out of 3153424
+ 786892 words of memory out of 3000000
+ 40523 multiletter control sequences out of 15000+200000
  665086 words of font info for 191 fonts, out of 3000000 for 9000
  1329 hyphenation exceptions out of 8191
  66i,20n,96p,10436b,798s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Ma.pdf (82 pages).
+Output written on Ma.pdf (83 pages).

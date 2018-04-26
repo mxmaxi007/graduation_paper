@@ -74,7 +74,7 @@
 \contentsline {chapter}{\numberline {第6章}总结与展望}{59}{chapter.6}
 \contentsline {section}{\numberline {6.1}本文工作总结}{59}{section.6.1}
 \contentsline {section}{\numberline {6.2}未来工作展望}{60}{section.6.2}
-\contentsline {chapter}{参考文献}{61}{section*.50}
-\contentsline {chapter}{致\hspace {1em}谢}{67}{section*.52}
-\contentsline {chapter}{声\hspace {1em}明}{68}{section*.54}
-\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{69}{section*.56}
+\contentsline {chapter}{参考文献}{61}{section*.52}
+\contentsline {chapter}{致\hspace {1em}谢}{67}{section*.54}
+\contentsline {chapter}{声\hspace {1em}明}{68}{section*.56}
+\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{69}{section*.58}
