@@ -137,7 +137,7 @@
 
 通过观察神经网络的激活输出能够验证网络学习到的信息，下面的图\ref{fig:rnn_out_comp}展示了一个中性语音的句子通过神经网络后RNN不同节点的激活输出。左边的图片代表定长神经网络，右边的图片代表变长神经网络，其中横轴代表时间，纵轴代表RNN不同的节点，颜色越深代表激活程度越高。从图中可以观察到右边图片中的条纹比左边图片中的要清晰很多。条纹清晰代表RNN的每个节点没有混淆，明确知道应该在何种输入下激活，而条纹模糊代表节点无法清楚知道应该在何时激活，这也就是定长方法将中性语音段标记为其他情感类别来训练模型而导致的混淆。
 
-此外，我们也发现特定的情感在特定的节点上有更高的激活值。图\ref{fig:rnn_out_emotions}展示了三种不同情感的语音在变长网络中的RNN的不同节点的激活输出，红色方框中的是高激活度的节点。从图中可以发现高兴和愤怒的激活节点比较相似，因为这两种情感的声学表现也比较相似，而悲伤的激活节点和高兴的激活节点就有明显的不同。不过中性情感无法找到特定的激活节点，这可能是因为中性语音没有一种特别明显的声学表现。这些不同情感对应的激活节点可以在变长网络中清楚地观察到，但在定长网络中，RNN不同节点的输出都和图\ref{fig:rnn_out_comp}中(a)相似，其激活条纹非常模糊而导致很难观察到这样的现象。这些实验结果进一步证明了变长的方法能够减轻模型对不同情感的混淆。
+此外，我们也发现特定的情感在特定的节点上有更高的激活值。图\ref{fig:rnn_out_ang}、图\ref{fig:rnn_out_hap}和图\ref{fig:rnn_out_sad}分别展示了三种不同情感的语音在变长网络中的RNN的不同节点的激活输出，红色方框中的是高激活度的节点。从图中可以发现高兴和愤怒的激活节点比较相似，因为这两种情感的声学表现也比较相似，而悲伤的激活节点和高兴的激活节点就有明显的不同。不过中性情感无法找到特定的激活节点，这可能是因为中性语音没有一种特别明显的声学表现。这些不同情感对应的激活节点可以在变长网络中清楚地观察到，但在定长网络中，RNN不同节点的输出都和图\ref{fig:rnn_out_comp}中(a)相似，其激活条纹非常模糊而导致很难观察到这样的现象。这些实验结果进一步证明了变长的方法能够减轻模型对不同情感的混淆。
 
 \begin{figure}[htb]
 \begin{minipage}{0.48\textwidth}
@@ -154,25 +154,46 @@
 \label{fig:rnn_out_comp}
 \end{figure}
 
-\begin{figure}[htb]
-\begin{minipage}{0.33\textwidth}
+\begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=3cm]{myfigures/rnn_out_var_ang}
-    \centerline{(a) 愤怒}\medskip
-\end{minipage}\hfill
-\begin{minipage}{0.33\textwidth}
-    \centering
-    \includegraphics[height=3cm]{myfigures/rnn_out_var_hap}
-    \centerline{(b) 高兴}\medskip
-\end{minipage}
-\begin{minipage}{0.33\textwidth}
-    \centering
-    \includegraphics[height=3cm]{myfigures/rnn_out_var_sad}
-    \centerline{(c) 悲伤}\medskip
-\end{minipage}
-\caption{不同情感的语音在变长循环神经网络上的激活输出‘}
-\label{fig:rnn_out_emotions}
+    \includegraphics[height=10cm]{myfigures/rnn_out_var_ang}
+    \caption{愤怒语音在变长循环神经网络上的激活输出}
+    \label{fig:rnn_out_ang}
 \end{figure}
+
+\begin{figure}[htb] % use float package if you want it here
+    \centering
+    \includegraphics[height=10cm]{myfigures/rnn_out_var_hap}
+    \caption{高兴语音在变长循环神经网络上的激活输出}
+    \label{fig:rnn_out_hap}
+\end{figure}
+
+\begin{figure}[htb] % use float package if you want it here
+    \centering
+    \includegraphics[height=10cm]{myfigures/rnn_out_var_sad}
+    \caption{悲伤语音在变长循环神经网络上的激活输出}
+    \label{fig:rnn_out_sad}
+\end{figure}
+
+% \begin{figure}[htb]
+% \begin{minipage}{0.33\textwidth}
+%     \centering
+%     \includegraphics[height=3cm]{myfigures/rnn_out_var_ang}
+%     \centerline{(a) 愤怒}\medskip
+% \end{minipage}\hfill
+% \begin{minipage}{0.33\textwidth}
+%     \centering
+%     \includegraphics[height=3cm]{myfigures/rnn_out_var_hap}
+%     \centerline{(b) 高兴}\medskip
+% \end{minipage}
+% \begin{minipage}{0.33\textwidth}
+%     \centering
+%     \includegraphics[height=3cm]{myfigures/rnn_out_var_sad}
+%     \centerline{(c) 悲伤}\medskip
+% \end{minipage}
+% \caption{不同情感的语音在变长循环神经网络上的激活输出‘}
+% \label{fig:rnn_out_emotions}
+% \end{figure}
 
 \section{本章小结}
 \label{sec:var_len_summary}
