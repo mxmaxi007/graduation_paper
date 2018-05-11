@@ -1,4 +1,4 @@
-\begin{thebibliography}{108}
+\begin{thebibliography}{110}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
@@ -288,6 +288,14 @@ Chernykh V, Sterling G, Prihodko P.
   networks\allowbreak[M].
 \newblock [S.l.: s.n.], 2017.
 
+\bibitem[Trigeorgis\ et~al.(2016)Trigeorgis, Ringeval, Brueckner, Marchi,
+  Nicolaou, Schuller, and Zafeiriou]{Trigeorgis2016Adieu}
+Trigeorgis G, Ringeval F, Brueckner R, et~al.
+\newblock Adieu features? end-to-end speech emotion recognition using a deep
+  convolutional recurrent network\allowbreak[C]//\allowbreak{}IEEE
+  International Conference on Acoustics, Speech and Signal Processing.
+\newblock [S.l.: s.n.], 2016.
+
 \bibitem[Jaitly\ et~al.(2011)Jaitly and Hinton]{Jaitly2011Learning}
 Jaitly N, Hinton G.
 \newblock Learning a better representation of speech soundwaves using
@@ -323,14 +331,6 @@ Variani E, Lei X, Mcdermott E, et~al.
   verification\allowbreak[C]//\allowbreak{}IEEE International Conference on
   Acoustics, Speech and Signal Processing.
 \newblock [S.l.: s.n.], 2014: 4052--4056.
-
-\bibitem[Trigeorgis\ et~al.(2016)Trigeorgis, Ringeval, Brueckner, Marchi,
-  Nicolaou, Schuller, and Zafeiriou]{Trigeorgis2016Adieu}
-Trigeorgis G, Ringeval F, Brueckner R, et~al.
-\newblock Adieu features? end-to-end speech emotion recognition using a deep
-  convolutional recurrent network\allowbreak[C]//\allowbreak{}IEEE
-  International Conference on Acoustics, Speech and Signal Processing.
-\newblock [S.l.: s.n.], 2016.
 
 \bibitem[Satt\ et~al.(2017)Satt, Rozenberg, and Hoory]{Satt2017Efficient}
 Satt A, Rozenberg S, Hoory R.
@@ -680,6 +680,20 @@ Genkin A, Lewis D~D, Madigan D.
 Dasarathy B~V.
 \newblock Decision fusion: volume 1994\allowbreak[M].
 \newblock [S.l.]: IEEE Computer Society Press Los Alamitos, CA, 1994
+
+\bibitem[Schuller\ et~al.(2009)Schuller, Steidl, and Batliner]{Schuller2009The}
+Schuller B, Steidl S, Batliner A.
+\newblock The interspeech 2009 emotion
+  challenge\allowbreak[C]//\allowbreak{}INTERSPEECH 2009, Conference of the
+  International Speech Communication Association.
+\newblock [S.l.: s.n.], 2009: 312--315.
+
+\bibitem[Eyben(2010)]{Eyben2010Opensmile}
+Eyben F.
+\newblock Opensmile: the munich versatile and fast open-source audio feature
+  extractor\allowbreak[C]//\allowbreak{}ACM International Conference on
+  Multimedia.
+\newblock [S.l.: s.n.], 2010: 1459--1462.
 
 \bibitem[薛瑞尼(2017)]{thuthesis}
 薛瑞尼.

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  6 MAY 2018 10:03
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  11 MAY 2018 09:16
 entering extended mode
 **./Ma.tex
 (Ma.tex
@@ -2269,13 +2269,13 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Warning: Label `equ:lagrange_multiplier' multiply defined.
 
 
-LaTeX Warning: Label `equ:decision_nb_6' multiply defined.
-
-
 LaTeX Warning: Label `sssec:emo_pair_acc_compare' multiply defined.
 
-) (data/chap04.aux) (data/chap05.aux) (data/chap06.aux) (data/ack.aux)
-(data/resume.aux))
+) (data/chap04.aux
+
+LaTeX Warning: Label `sec:cnn_spectrogram_feature' multiply defined.
+
+) (data/chap05.aux) (data/chap06.aux) (data/ack.aux) (data/resume.aux))
 \openout1 = `Ma.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 28.
@@ -2656,11 +2656,21 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 File: figures/myfigures/end2end_speech_emotion_recognition.pdf Graphic file (ty
 pe pdf)
 <use figures/myfigures/end2end_speech_emotion_recognition.pdf>
- [3] [4] [5]) [6] [7]
+ [3] [4] [5] [6]) [7]
 \openout2 = `data/chap02.aux'.
 
  (data/chap02.tex
 第2章
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 19
+.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 11.04124pt on input line 19.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.06006pt on input line 19.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.07271pt on input line 19.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.06006pt on input line 19.
 [8
 
 
@@ -2670,12 +2680,7 @@ File: figures/myfigures/emo_space_2dim.pdf Graphic file (type pdf)
 <use figures/myfigures/emo_space_2dim.pdf>
 File: figures/myfigures/emo_space_3dim.pdf Graphic file (type pdf)
 <use figures/myfigures/emo_space_3dim.pdf>
- [9] [10] [11]
-Overfull \hbox (0.91606pt too wide) in paragraph at lines 111--111
- []|\T1/ntxtlf/m/n/11.04124 INTERFACE$[]$| 
- []
-
-[12]
+ [9] [10] [11] [12]
 File: figures/myfigures/acoustic_feature_type.pdf Graphic file (type pdf)
 <use figures/myfigures/acoustic_feature_type.pdf>
 
@@ -2688,11 +2693,11 @@ File: figures/myfigures/feature_select_flow.pdf Graphic file (type pdf)
 <use figures/myfigures/feature_select_flow.pdf>
  [14] [15]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.045pt on input line 172.
+(Font)              scaled to size 12.045pt on input line 168.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 172.
+(Font)              scaled to size 8.0pt on input line 168.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 6.0pt on input line 172.
+(Font)              scaled to size 6.0pt on input line 168.
 Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
 ut line 175.
  [16] [17] [18]) [19]
@@ -2700,89 +2705,89 @@ ut line 175.
 
  (data/chap03.tex
 第3章
-File: figures/myfigures/emo_pair_flow.pdf Graphic file (type pdf)
-<use figures/myfigures/emo_pair_flow.pdf>
 [20
 
 
 
-] [21]
+]
+File: figures/myfigures/emo_pair_flow.pdf Graphic file (type pdf)
+<use figures/myfigures/emo_pair_flow.pdf>
+ [21]
 File: figures/myfigures/hierarchical_flow.pdf Graphic file (type pdf)
 <use figures/myfigures/hierarchical_flow.pdf>
  [22] [23] [24] [25]
 File: figures/myfigures/sffs_feature_select.pdf Graphic file (type pdf)
 <use figures/myfigures/sffs_feature_select.pdf>
- [26] [27]
+ [26] [27] [28]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 131.
+put line 135.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.03374pt on input line 144.
- [28]
+(Font)              scaled to size 9.03374pt on input line 148.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
-input line 159.
+input line 163.
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input 
-line 162.
+line 166.
  [29]
 File: figures/myfigures/emo_space_distance.pdf Graphic file (type pdf)
 <use figures/myfigures/emo_space_distance.pdf>
  [30]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 192.
+(Font)              scaled to size 6.0pt on input line 197.
  [31] [32]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 11.04124pt on input line 243.
+(Font)              scaled to size 11.04124pt on input line 248.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.06006pt on input line 243.
+(Font)              scaled to size 8.06006pt on input line 248.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 6.07271pt on input line 243.
+(Font)              scaled to size 6.07271pt on input line 248.
  [33] [34]
 [35] [36]
-File: figures/myfigures/histogram_neutral.pdf Graphic file (type pdf)
-<use figures/myfigures/histogram_neutral.pdf>
-File: figures/myfigures/histogram_angry.pdf Graphic file (type pdf)
-<use figures/myfigures/histogram_angry.pdf>
 File: figures/myfigures/histogram_happy.pdf Graphic file (type pdf)
 <use figures/myfigures/histogram_happy.pdf>
+File: figures/myfigures/histogram_angry.pdf Graphic file (type pdf)
+<use figures/myfigures/histogram_angry.pdf>
 File: figures/myfigures/histogram_sad.pdf Graphic file (type pdf)
 <use figures/myfigures/histogram_sad.pdf>
-) [37] [38] [39]
+File: figures/myfigures/histogram_neutral.pdf Graphic file (type pdf)
+<use figures/myfigures/histogram_neutral.pdf>
+) [37] [38] [39] [40]
 \openout2 = `data/chap04.aux'.
 
  (data/chap04.tex
 第4章
 File: figures/myfigures/end2end_flow.pdf Graphic file (type pdf)
 <use figures/myfigures/end2end_flow.pdf>
-[40
+[41
 
 
 
 ]
 File: figures/myfigures/spectrogram_example.jpg Graphic file (type bmp)
 <figures/myfigures/spectrogram_example.jpg>
- [41]
+ [42]
 File: figures/myfigures/cnn_1_layer.pdf Graphic file (type pdf)
 <use figures/myfigures/cnn_1_layer.pdf>
 File: figures/myfigures/cnn_2_layer.pdf Graphic file (type pdf)
 <use figures/myfigures/cnn_2_layer.pdf>
- [42]
+ [43]
 File: figures/myfigures/cnn_layer_pooling.pdf Graphic file (type pdf)
 <use figures/myfigures/cnn_layer_pooling.pdf>
 File: figures/myfigures/cnn_layer_pooling_2dim.pdf Graphic file (type pdf)
 <use figures/myfigures/cnn_layer_pooling_2dim.pdf>
- [43]
+ [44] [45]
 File: figures/myfigures/rnn.pdf Graphic file (type pdf)
 <use figures/myfigures/rnn.pdf>
- [44] [45] [46] [47]
+ [46] [47] [48]
 File: figures/myfigures/end2end_nn_topology.pdf Graphic file (type pdf)
 <use figures/myfigures/end2end_nn_topology.pdf>
- [48] [49]
+ [49] [50]
 File: figures/myfigures/cnn_spectrogram.jpg Graphic file (type bmp)
 <figures/myfigures/cnn_spectrogram.jpg>
 File: figures/myfigures/cnn_vertical.jpg Graphic file (type bmp)
 <figures/myfigures/cnn_vertical.jpg>
 File: figures/myfigures/cnn_horizontal.jpg Graphic file (type bmp)
 <figures/myfigures/cnn_horizontal.jpg>
-) [50] [51]
+) [51] [52]
 \openout2 = `data/chap05.aux'.
 
  (data/chap05.tex
@@ -2801,25 +2806,25 @@ Overfull \hbox (8.49458pt too wide) in paragraph at lines 19--21
  [][] 
  []
 
-[52
+[53
 
 
 
-] [53] [54]
+] [54] [55]
 File: figures/myfigures/var_len_nn_topology.pdf Graphic file (type pdf)
 <use figures/myfigures/var_len_nn_topology.pdf>
- [55] [56]
+ [56] [57]
 File: figures/myfigures/rnn_out_const_neu_comp.jpg Graphic file (type bmp)
 <figures/myfigures/rnn_out_const_neu_comp.jpg>
 
-Overfull \hbox (8.49458pt too wide) in paragraph at lines 143--145
+Overfull \hbox (8.49458pt too wide) in paragraph at lines 145--147
  [][] 
  []
 
 File: figures/myfigures/rnn_out_var_neu_comp.jpg Graphic file (type bmp)
 <figures/myfigures/rnn_out_var_neu_comp.jpg>
 
-Overfull \hbox (8.49458pt too wide) in paragraph at lines 148--150
+Overfull \hbox (8.49458pt too wide) in paragraph at lines 150--152
  [][] 
  []
 
@@ -2829,16 +2834,16 @@ File: figures/myfigures/rnn_out_var_hap.jpg Graphic file (type bmp)
 <figures/myfigures/rnn_out_var_hap.jpg>
 File: figures/myfigures/rnn_out_var_sad.jpg Graphic file (type bmp)
 <figures/myfigures/rnn_out_var_sad.jpg>
-) [57] [58]
+) [58] [59]
 \openout2 = `data/chap06.aux'.
 
  (data/chap06.tex
 第6章
-[59
+[60
 
 
 
-]) [60] (Ma.bbl [61
+]) [61] (Ma.bbl [62
 
 
 
@@ -2846,30 +2851,30 @@ File: figures/myfigures/rnn_out_var_sad.jpg Graphic file (type bmp)
 ]
 Missing character: There is no č in font ntx-Regular-tlf-t1!
 Missing character: There is no č in font ntx-Regular-tlf-t1!
- [62] [63] [64] [65]
+ [63] [64] [65] [66]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.53937pt on input line 686.
+(Font)              scaled to size 10.53937pt on input line 700.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 688.
+(Font)              scaled to size 7.0pt on input line 702.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 688.
+(Font)              scaled to size 5.0pt on input line 702.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 688.
+(Font)              scaled to size 10.53937pt on input line 702.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 7.0pt on input line 688.
+(Font)              scaled to size 7.0pt on input line 702.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 5.0pt on input line 688.
-) [66]
+(Font)              scaled to size 5.0pt on input line 702.
+) [67]
 \openout2 = `data/ack.aux'.
 
  (data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 10.
- [67
+ [68
 
 
 
-]) [68
+]) [69
 
 
 ]
@@ -2877,17 +2882,17 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 
 
 (data/resume.tex
-Underfull \hbox (badness 1242) in paragraph at lines 15--16
-[]\T1/ntxtlf/m/n/12.045 X. Ma, Z.Y. Wu, J. Jia, M.X. Xu, H. Meng and L.H. Cai  
-|\TU/SimSun(0)/m/n/12.045 “\T1/ntxtlf/m/n/12.045 Speech
+Underfull \hbox (badness 1178) in paragraph at lines 15--16
+[]\T1/ntxtlf/b/n/12.045 X. Ma\T1/ntxtlf/m/n/12.045 , Z.Y. Wu, J. Jia, M.X. Xu, 
+H. Meng and L.H. Cai  |\TU/SimSun(0)/m/n/12.045 “\T1/ntxtlf/m/n/12.045 Speech
  []
 
-) [69
+[70
 
 
 
 
-]
+]) [71]
 \tf@thm=\write5
 \openout5 = `Ma.thm'.
 
@@ -2904,12 +2909,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 37087 strings out of 429758
- 700243 string characters out of 3180238
- 781948 words of memory out of 3000000
- 40397 multiletter control sequences out of 15000+200000
+ 37156 strings out of 429758
+ 704266 string characters out of 3180238
+ 782806 words of memory out of 3000000
+ 40466 multiletter control sequences out of 15000+200000
  665086 words of font info for 191 fonts, out of 3000000 for 9000
  1 hyphenation exception out of 8191
- 66i,20n,96p,10436b,798s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,20n,96p,10436b,770s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Ma.pdf (82 pages).
+Output written on Ma.pdf (84 pages).
