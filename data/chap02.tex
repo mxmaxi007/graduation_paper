@@ -46,6 +46,8 @@
 另外一种情感的定义方式是连续的情感维度空间定义~\cite{Cowie2002Emotion}，这种定义将情感映射到一个笛卡尔空间坐标系中，不同的坐标轴分别代表不同的心理学属性，每一种情感都可以被视为坐标系中的一个点。常用的情感空间模型有激活度-效价(Activation-Valence)二维情感空间~\cite{Cowie2002Emotion}和激活度-效价-支配力(Activation-Valence-Dominance)三维情感空间~\cite{Cowie2002Emotion}，下面的图\ref{fig:emo_space_2dim}和图\ref{fig:emo_space_3dim}分别是两种情感维度空间的示意图。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
     \includegraphics[height=10cm]{myfigures/emo_space_2dim}
     \caption{二维情感空间模型（激活度-效价）~\cite{Cowie2002Emotion}}
@@ -53,6 +55,8 @@
 \end{figure}
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
     \includegraphics[height=10cm]{myfigures/emo_space_3dim}
     \caption{三维情感空间模型（激活度-效价-支配力）~\cite{Cowie2002Emotion}}
@@ -60,6 +64,8 @@
 \end{figure}
 
 这种情感空间模型理论上可以描述任何情感，其中激活度代表情感的强烈程度，例如愤怒就是激活度非常高的情感。效价代表情感的积极性，例如悲伤就是一种积极性很低的情感，所以它的效价很低。支配力代表情感对别人的影响程度，例如高兴就是对别人影响比较大的一种情感，所以支配力比较大。情感空间模型将原先的标签分类问题转换为的对心理学属性值的回归问题，从而能够描述更为复杂的情感。但这种模型的的缺点是标记数据的成本太高，因为将主观情感量化为客观数值是一个繁重且难以保证质量的过程。
+
+通常在进行维度空间的标注时，会采用一些辅助软件来帮助标记员对每个坐标轴的值进行估计，例如FeelTrace~\cite{Cowie2015}。这些软件可以通过一些能够表征程度的图片来将每个坐标轴的值分为几个级别，然后由标注员选择不同级别的图片以完成标注。
 
 \section{情感语音数据库}
 \label{sec:emo_speech_database}
@@ -126,7 +132,7 @@
 
 \begin{figure}[htb] % use float package if you want it here
     \centering
-    \includegraphics[height=9cm]{myfigures/acoustic_feature_type}
+    \includegraphics[height=8cm]{myfigures/acoustic_feature_type}
     \caption{不同类型的声学特征}
     \label{fig:acoustic_feature_type}
 \end{figure}
@@ -142,13 +148,15 @@
 声学特征有许多种，选择与情感相关的特征除了依靠人工挑选以外，还可以通过一些特征选择算法来自动选出相关的特征。假设我们有一个很大的特征集合，特征选择算法所要做的就是规定一种指标，例如熵增益~\cite{Dhillon2003A}或者识别准确率~\cite{Dietterich1998Approximate}，然后通过特征的各种组合来选取出那些指标最好的特征子集。这样既可以减少输入特征的数量，降低计算量，又可以去除无效特征的干扰，大致流程如图\ref{fig:feature_select_flow}所示。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=14cm]{myfigures/feature_select_flow}
+    \includegraphics[height=12cm]{myfigures/feature_select_flow}
     \caption{特征选择流程图}
     \label{fig:feature_select_flow}
 \end{figure}
 
-特征选择算法有许多，例如序列浮动前向选择算法(Sequential Floating Forward Selection, SFFS)~\cite{Ververidis2008Fast}通过迭代的方法选择出接近最优的特征子集；还有遗传算法(Genetic Algorithm, GA)~\cite{Yang1998Feature}是一种模拟生物进化的算法，它通过不断地繁殖和变异来筛选出最优的特征子集。除了特征选择算法以外，还有一些特征空间转换的算法也可以降低输入特征的维度，例如主成分分析(Principal Component Analysis, PCA)~\cite{Ben2003Detecting}和线性判别分析(Linear Discriminant Analysis, LDA)~\cite{Blum1997Selection}，它们可以通过矩阵运算将高维特征向量转换到低维特征向量，从而减少计算量。
+特征选择算法有许多，例如序列浮动前向选择算法(Sequential Floating Forward Selection, SFFS)~\cite{Ververidis2008Fast}通过迭代的方法选择出接近最优的特征子集；还有遗传算法(Genetic Algorithm, GA)~\cite{Yang1998Feature}是一种模拟生物进化的算法，它通过不断地繁殖和变异来筛选出最优的特征子集。除了特征选择算法以外，还有一些特征空间转换的算法也可以降低输入特征的维度，例如主成分分析(Principal Component Analysis, PCA)~\cite{Ben2003Detecting}和线性判别分析(Linear Discriminant Analysis, LDA)~\cite{Blum1997Selection}，它们可以通过矩阵运算将高维特征向量转换到低维特征向量，从而减少计算量。此外，这些特征空间转换的方法滤除一些和任务目标或者对整体数据分布影响不是很大的特征，从而使得模型能够更加关注于对任务影响最大的那些特征。
 
 
 \subsection{深度神经网络抽取情感相关的声学特征}
@@ -165,7 +173,7 @@
 
 许多传统机器学习中的分类算法已经被运用在语音情感识别任务上，例如隐马尔可夫模型(Hidden Markov Model, HMM)，高斯混合模型(Gaussian Mixture Models, GMM)，支持向量机(Support Vector Machine, SVM)等。目前并没有公认的最适合语音情感识别的分类器，每一种分类器都有各自的优缺点，下面我们将分别介绍几种常用的分类器模型。
 
-HMM被广泛地应用在语音识别领域，例如孤立词的识别和端点检测。这是因为它和语音信号的产生机制十分相似~\cite{Rabiner2007An}。HMM是一个包含一阶马尔科夫链的双随机过程，分别包含隐藏的转移状态和可观测的输出，其中隐藏状态是用来建模语音信号的时序信息。在数学上，为了通过HMM给一个可观测序列$\mathbf{x}_1,...,\mathbf{x}_T$建模，我们假设一个马尔科夫链可以用于生成观测序列，让$K$代表状态的数量，$\pi_i, i=1,...,K$代表不同状态的初始概率，$a_{ij}, i=1,...K, j=1,...,K$代表从状态$i$到状态$j$的转移概率。通常HMM的参数都是通过最大似然的方法来估计。假设实际的状态序列是$s_1,...,s_T$,观测序列的似然度可以通过下面的公式给出：
+HMM被广泛地应用在语音识别领域，例如孤立词的识别和端点检测。这是因为它和语音信号的产生机制十分相似~\cite{Rabiner2007An}。HMM是一个包含一阶马尔科夫链的双随机过程，分别包含隐藏的转移状态和可观测的输出，其中隐藏状态是用来建模语音信号的时序信息。在数学上，为了通过HMM给一个可观测序列$\mathbf{x}_1,...,\mathbf{x}_T$建模，我们假设一个马尔科夫链可以用于生成观测序列，让$K$代表状态的数量，$\pi_i, i=1,...,K$代表不同状态的初始概率，$a_{ij}, i=1,...K, j=1,...,K$代表从状态$i$到状态$j$的转移概率。通常HMM的参数都是通过最大似然的方法来估计。假设实际的状态序列是$s_1,...,s_T$,观测序列的似然度可以通过下面的公式\ref{equ:output_pro}给出：
 \begin{equation}
 \label{equ:output_pro}
     \begin{aligned}
@@ -173,7 +181,7 @@ HMM被广泛地应用在语音识别领域，例如孤立词的识别和端点�
         &= \pi_{s_1}b_{s_1}(\mathbf{x}_1)\prod\limits_{t=2}^Ta_{s_{t-1},s_t}b_{s_t}(\mathbf{x}_t)
     \end{aligned}
 \end{equation}
-其中，$b_i(\mathbf{x}_t) \equiv P(\mathbf{x}_t|s_t = i)$是第$i$个状态的输出概率。它既可以是离散的概率分布，也可以是连续的概率密度。因为真实的状态序列并不知道，所以在给定输出序列时，我们必须对所有可能的状态序列的似然度求和，如下面的公式：
+其中，$b_i(\mathbf{x}_t) \equiv P(\mathbf{x}_t|s_t = i)$是第$i$个状态的输出概率。它既可以是离散的概率分布，也可以是连续的概率密度。因为真实的状态序列并不知道，所以在给定输出序列时，我们必须对所有可能的状态序列的似然度求和，如下面的公式\ref{equ:output_pro_sum}：
 \begin{equation}
 \label{equ:output_pro_sum}
         p(\mathbf{x}_1,...,\mathbf{x}_T) = \sum\limits_{s_1,...,s_T}\pi_{s_1}b_{s_1}(\mathbf{x}_1)\prod\limits_{t=2}^Ta_{s_{t-1},s_t}b_{s_t}(\mathbf{x}_t)

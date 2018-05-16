@@ -6,24 +6,28 @@
 
 上一章我们介绍了基于深度神经网络的端到端的语音情感识别系统，但是为了方便神经网络模型处理，一个完整的语音句子被切分成了更小的等长语音段，每一个语音段都被标记为对应句子的情感类别。这样的处理方式会引入一些问题，因为在我们实际的观测中，一个非中性的句子中并不是所有的语音段都会包含有明显的情感信息，往往只有一部分语音段包含情感信息。当我们将句子切分成多个语音段时，可能并不是所有的语音段都包含有情感信息，但在上一章的处理办法中仍然会将不包含情感信息的语音段标记为句子的情感类别。这样的数据在训练模型时会对模型造成混淆，因为同样的中性语音段，有的被标记为中性，有的被标记为其他情感，使得模型无法区分哪些应该是真正的中性语音。除了对中性情感的识别会产生影响以外，由于在预测时是由句子划分的所有语音段共同来决定句子最终的情感类别，而中性语音段对当前句子的情感区分贡献不大，所以也有可能会导致在识别时不同情感之间发生混淆。
 
-一般而言，一个句子中只有部分语音含有明显的情感信息，为了进一步验证这一猜测，图\ref{fig:angry_spectrogram}展示了一个标记为愤怒的句子中前后两个语音段的语谱图，其中横轴代表时间，纵轴代表频率，颜色越深代表能量越高，(a)属于句子前半部分，(b)属于句子后半部分。通常来说，愤怒的语音在各个频段的能量都相对较高，可以看到图中(b)的语音段的能量较高，看上去更像一段愤怒的语音，而(a)的语音段则看上去却不像愤怒语音。通过人工听测这两个语音段，同样也发现(b)的语音段听上去包含有更多的愤怒情感，(a)的语音段听上去却更像中性语音。然而，当我们直接听整个句子时，却发现前面的中性语音段可以增强后面的愤怒语音段的愤怒感觉，也就是所谓的欲扬先抑。所以有必要将一个句子作为整体输入来进行情感识别。但是句子的长度通常都是不相同的，所以需要设计一种可以处理变长语音段的神经网络结构，并将整个句子作为输入以提升模型的识别率。
+一般而言，一个句子中只有部分语音含有明显的情感信息，为了进一步验证这一猜测，图\ref{fig:angry_spectrogram}展示了一个标记为愤怒的句子中前后两个语音段的语谱图，其中横轴代表时间，纵轴代表频率，颜色越深代表能量越高，(a)属于句子前半部分，(b)属于句子后半部分。
 
 \begin{figure}[htb]
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[height=5cm]{myfigures/angry_spectrogram_weak}
-    \centerline{(a) 情感信息弱}\medskip
-\end{minipage}\hfill
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[height=5cm]{myfigures/angry_spectrogram_strong}
-    \centerline{(b) 情感信息强}\medskip
-\end{minipage}
-\caption{愤怒句子不同语音段的语谱图}
-\label{fig:angry_spectrogram}
+    \vspace{-0cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{myfigures/angry_spectrogram_weak}
+        \centerline{(a) 情感信息弱}\medskip
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{myfigures/angry_spectrogram_strong}
+        \centerline{(b) 情感信息强}\medskip
+    \end{minipage}
+    \caption{愤怒句子不同语音段的语谱图}
+    \label{fig:angry_spectrogram}
 \end{figure}
 
-本章剩余的部分是这样安排的：首先我们将介绍变长语音段如何抽取语谱图，然后将介绍如何实现能够处理变长输入的深度神经网络模型，最后将通过实验比较定长输入的神经网络和变长输入的神经网络在识别效果上的差异。
+通常来说，愤怒的语音在各个频段的能量都相对较高，可以看到图\ref{fig:angry_spectrogram}中(b)的语音段的能量较高，看上去更像一段愤怒的语音，而(a)的语音段则看上去却不像愤怒语音。通过人工听测这两个语音段，同样也发现(b)的语音段听上去包含有更多的愤怒情感，(a)的语音段听上去却更像中性语音。然而，当我们直接听整个句子时，却发现前面的中性语音段可以增强后面的愤怒语音段的愤怒感觉，也就是所谓的欲扬先抑。所以有必要将一个句子作为整体输入来进行情感识别。但是句子的长度通常都是不相同的，所以需要设计一种可以处理变长语音段的神经网络结构，并将整个句子作为输入以提升模型的识别率。
+
+本章剩余的部分是这样安排的：首先我们将介绍变长语音段如何抽取语谱图和预处理，然后将介绍如何实现能够处理变长输入的深度神经网络模型，接下来将通过实验比较定长输入的神经网络和变长输入的神经网络在识别效果上的差异，以及分析定长模型和变长模型在相同语音输入的情况下神经网络的激活输出，最后总结本章的内容。
 
 \section{变长语音段的语谱图抽取}
 
@@ -32,7 +36,7 @@
 \section{变长神经网络结构}
 \label{sec:var_len_nn}
 
-在上一章基于深度神经网络的端到端的语音情感识别系统中，我们主要采用了两种神经网络结构：卷积神经网络(Convolution Neutral Network, CNN)和循环神经网络(Recurrent Neural Network, RNN)。这两种神经网络结构通常的用法都是处理定长的输入，但它们同样也具备处理变长输入的能力。为了方便描述，假设输入序列为$\mathbf{s} = \{x_1, x_2,...,x_V,...,x_T\}$，其中$\mathbf{s}1 = \{x_1, x_2,...,x_V\}$是有效的部分，$\mathbf{s}2 = \{x_{V+1}, x_{V+2},...,x_T\}$是补齐的0。我们设计变长神经网络结构的主要目的就是不让补齐的0对最终的结果产生影响，下面将介绍本文是如何实现变长的CNN和RNN的。
+在上一章基于深度神经网络的端到端的语音情感识别系统中，我们主要采用了两种神经网络结构：卷积神经网络(Convolution Neutral Network, CNN)和循环神经网络(Recurrent Neural Network, RNN)。这两种神经网络结构通常的用法都是处理定长的输入，但它们同样也具备处理变长输入的能力。为了方便描述，假设输入序列为$\mathbf{s} = \{x_1, x_2,...,x_V,...,x_T\}$，其中$\mathbf{s}1 = \{x_1, x_2,...,x_V\}$是有效的部分，$\mathbf{s}2 = \{x_{V+1}, x_{V+2},...,x_T\}$是补齐的0。我们设计变长神经网络结构的主要目的就是不让补齐的0对最终的结果产生影响，下面将介绍本文是采用什么方法来设计模型，保证CNN和RNN都能够接受变长的输入，并且。
 
 \subsection{变长卷积神经网络}
 \label{ssec:var_len_cnn}
@@ -47,7 +51,7 @@
 \subsection{变长循环神经网络}
 \label{ssec:var_len_rnn}
 
-循环神经网络(Recurrent Neural Network, RNN)是用来建模语音信号的时序信息的，对于每一个时间步的输出都采用相同的参数进行计算，同样也可以用来处理变长的序列输入。由于语音情感识别是关于输入序列的分类任务，所以我们只需要RNN最后一个时间步的输出。假设$\mathbf{s}$是RNN的输入，期望的结果是时间步$t=V$时的输出，所以我们可以忽略$t=V+1$以后的所有输出，保证无效的补齐部分不会对输出产生影响。此外，对于双向的RNN，反向的RNN会将$t=0$时的结果作为输出。双向RNN的最终输出位正向$t=V$时的输出与反向$t=0$时的输出的拼接。
+循环神经网络(Recurrent Neural Network, RNN)是用来建模语音信号的时序信息的，对于每一个时间步的输出都采用相同的参数进行计算，同样也可以用来处理变长的序列输入。由于语音情感识别是关于输入序列的分类任务，所以我们只需要RNN最后一个时间步的输出。假设$\mathbf{s}$是RNN的输入，期望的结果是时间步$t=V$时的输出，所以我们可以忽略$t=V+1$以后的所有输出，保证无效的补齐部分不会对输出产生影响。此外，对于双向的RNN，反向的RNN会将$t=0$时的结果作为输出。双向RNN的最终输出位正向$t=V$时的输出与反向$t=0$时的输出的拼接。拼接后输出的长度将是固定的，会被全连接神经网络映射到不同情感类别的后验概率，从而完成情感分类的任务。
 
 \section{实验结果及分析}
 \label{sec:var_len_experiment}
@@ -60,8 +64,10 @@
 数据库同样是采用IEMOCAP情感语音数据库~\cite{Busso2008IEMOCAP}，在实验设置上和上一章的唯一不同的在于模型的语谱图输入在时域上不是固定大小，而是和语音句子的长度相关。图\ref{fig:var_len_nn_topology}是通过实验得到的最佳神经网络结构，其中$T$是语音句子的时间长度，$N$是语谱图的时域长度。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=12cm]{myfigures/var_len_nn_topology}
+    \includegraphics[height=10cm]{myfigures/var_len_nn_topology}
     \caption{深度神经网络结构}
     \label{fig:var_len_nn_topology}
 \end{figure}
@@ -100,7 +106,7 @@
 \caption{混淆矩阵（定长输入）}
 \label{tab:cm_const_len}
     % \begin{tabular}{p{6cm}<{\centering} p{6cm}<{\centering}}
-    \begin{tabularx}{\linewidth}{X|X|X|X|X}
+    \begin{tabularx}{\linewidth}{X<{\centering} X<{\centering} X<{\centering} X<{\centering} X<{\centering}}
         \toprule[1.5pt]
         \diagbox[width=5em,trim=l]{实际}{预测} & 中性 & 愤怒 & 高兴 & 悲伤 \\
         \midrule[1pt]
@@ -119,7 +125,7 @@
 \caption{混淆矩阵（变长输入）}
 \label{tab:cm_var_len}
     % \begin{tabular}{p{6cm}<{\centering} p{6cm}<{\centering}}
-    \begin{tabularx}{\linewidth}{X|X|X|X|X}
+    \begin{tabularx}{\linewidth}{X<{\centering} X<{\centering} X<{\centering} X<{\centering} X<{\centering}}
         \toprule[1.5pt]
         \diagbox[width=5em,trim=l]{实际}{预测} & 中性 & 愤怒 & 高兴 & 悲伤 \\
         \midrule[1pt]
@@ -137,40 +143,48 @@
 
 通过观察神经网络的激活输出能够验证网络学习到的信息，下面的图\ref{fig:rnn_out_comp}展示了一个中性语音的句子通过神经网络后RNN不同节点的激活输出。左边的图片代表定长神经网络，右边的图片代表变长神经网络，其中横轴代表时间，纵轴代表RNN不同的节点，颜色越深代表激活程度越高。从图中可以观察到右边图片中的条纹比左边图片中的要清晰很多。条纹清晰代表RNN的每个节点没有混淆，明确知道应该在何种输入下激活，而条纹模糊代表节点无法清楚知道应该在何时激活，这也就是定长方法将中性语音段标记为其他情感类别来训练模型而导致的混淆。
 
-此外，我们也发现特定的情感在特定的节点上有更高的激活值。图\ref{fig:rnn_out_ang}、图\ref{fig:rnn_out_hap}和图\ref{fig:rnn_out_sad}分别展示了三种不同情感的语音在变长网络中的RNN的不同节点的激活输出，红色方框中的是高激活度的节点。从图中可以发现高兴和愤怒的激活节点比较相似，因为这两种情感的声学表现也比较相似，而悲伤的激活节点和高兴的激活节点就有明显的不同。不过中性情感无法找到特定的激活节点，这可能是因为中性语音没有一种特别明显的声学表现。这些不同情感对应的激活节点可以在变长网络中清楚地观察到，但在定长网络中，RNN不同节点的输出都和图\ref{fig:rnn_out_comp}中(a)相似，其激活条纹非常模糊而导致很难观察到这样的现象。这些实验结果进一步证明了变长的方法能够减轻模型对不同情感的混淆。
-
-\begin{figure}[htb]
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[height=5cm]{myfigures/rnn_out_const_neu_comp}
-    \centerline{(a) 定长方法}\medskip
-\end{minipage}\hfill
-\begin{minipage}{0.48\textwidth}
-    \centering
-    \includegraphics[height=5cm]{myfigures/rnn_out_var_neu_comp}
-    \centerline{(b) 变长方法}\medskip
-\end{minipage}
-\caption{同一句话在定长方法和变长方法中循环神经网络的激活输出}
-\label{fig:rnn_out_comp}
+\begin{figure}[h]
+    \vspace{-0cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{myfigures/rnn_out_const_neu_comp}
+        \centerline{(a) 定长方法}\medskip
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[height=5cm]{myfigures/rnn_out_var_neu_comp}
+        \centerline{(b) 变长方法}\medskip
+    \end{minipage}
+    \caption{同一句话在定长方法和变长方法中循环神经网络的激活输出}
+    \label{fig:rnn_out_comp}
 \end{figure}
 
-\begin{figure}[htb] % use float package if you want it here
+此外，我们也发现特定的情感在特定的节点上有更高的激活值。图\ref{fig:rnn_out_ang}、图\ref{fig:rnn_out_hap}和图\ref{fig:rnn_out_sad}分别展示了三种不同情感的语音在变长网络中的RNN的不同节点的激活输出，红色方框中的是高激活度的节点。从图中可以发现高兴和愤怒的激活节点比较相似，因为这两种情感的声学表现也比较相似，而悲伤的激活节点和高兴的激活节点就有明显的不同。不过中性情感无法找到特定的激活节点，这可能是因为中性语音没有一种特别明显的声学表现。这些不同情感对应的激活节点可以在变长网络中清楚地观察到，但在定长网络中，RNN不同节点的输出都和图\ref{fig:rnn_out_comp}中(a)相似，其激活条纹非常模糊而导致很难观察到这样的现象。这些实验结果进一步证明了变长的方法能够减轻模型对不同情感的混淆。
+
+\begin{figure}[h] % use float package if you want it here
+    \vspace{-0cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=10cm]{myfigures/rnn_out_var_ang}
+    \includegraphics[height=7cm]{myfigures/rnn_out_var_ang}
     \caption{愤怒语音在变长循环神经网络上的激活输出}
     \label{fig:rnn_out_ang}
 \end{figure}
 
-\begin{figure}[htb] % use float package if you want it here
+\begin{figure}[h] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离 
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=10cm]{myfigures/rnn_out_var_hap}
+    \includegraphics[height=7cm]{myfigures/rnn_out_var_hap}
     \caption{高兴语音在变长循环神经网络上的激活输出}
     \label{fig:rnn_out_hap}
 \end{figure}
 
-\begin{figure}[htb] % use float package if you want it here
+\begin{figure}[!tp] % use float package if you want it here
+    \vspace{-0cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=10cm]{myfigures/rnn_out_var_sad}
+    \includegraphics[height=7cm]{myfigures/rnn_out_var_sad}
     \caption{悲伤语音在变长循环神经网络上的激活输出}
     \label{fig:rnn_out_sad}
 \end{figure}
@@ -198,4 +212,4 @@
 \section{本章小结}
 \label{sec:var_len_summary}
 
-本章主要设计了一种能够处理变长语音段输入的深度神经网络结构，相比于上一章提出的定长输入的深度神经网络模型，可以有效地减轻模型对不同情感的混淆。在情感语音数据库IEMOCAP上，变长的方法方法相比于定长的方法能够取得更好的识别率，并且超过了之前的最好结果(The State of Art)。
+本章主要设计了一种能够处理变长语音段输入的深度神经网络结构，相比于上一章提出的定长输入的深度神经网络模型，可以有效地减轻模型对不同情感的混淆。在情感语音数据库IEMOCAP上，变长的方法方法相比于定长的方法能够取得更好的识别率，并且超过了之前的最好结果(state-of-the-art)。

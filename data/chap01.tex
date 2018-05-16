@@ -20,6 +20,8 @@
 传统的语音情感识别主要可以分为两个部分，第一部分是抽取和情感信息相关的声学特征，第二部分是使用分类器将特征向量映射到对应的情感类别，图\ref{fig:traditional_speech_emotion_recognition}是传统语音情感识别的流程图。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
     \includegraphics[height=10cm]{myfigures/traditional_speech_emotion_recognition}
     \caption{传统语音情感识别流程图}
@@ -36,6 +38,8 @@
 
 \begin{figure}[htb] % use float package if you want it here
     \centering
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \includegraphics[height=8cm]{myfigures/end2end_speech_emotion_recognition}
     \caption{端到端语音情感识别流程图}
     \label{fig:end2end_speech_emotion_recognition}
@@ -43,7 +47,7 @@
 
 这种端到端的系统最早出现在语音识别领域，最早的工作是Jaitly等人~\cite{Jaitly2011Learning}通过受限玻尔兹曼机(Restricted Boltzmann Machine, RBM)从原始语音信号上得到一种有利于语音识别的中间表示。Bhargava等人~\cite{Bhargava2015Architectures}则是通过堆叠的全连接神经网络从原始语音信号得到瓶颈特征(Bottleneck Feature)，并且取得了和使用梅尔频率倒谱系数相近的效果。 Sainath等人~\cite{Sainath2015Convolutional}将卷积神经网络(Convolution Neural Network, CNN)和长短时记忆循环神经网络（Long-Short Term Memory Recurrent Neural Network， LSTM-RNN)用在大词表语音识别上。Hannun和Amodei~\cite{Amodei2015Deep}在线性语谱图(Linearly-Spaced Spectrogram)上采用深度神经网络，搭建出了当时最好的语音识别系统。此外，在梅尔语谱图(Mel-Scale Spectrogram)上使用深度学习方法，进行说话人识别也取得了很不错的效果~\cite{Variani2014Deep}。
 
-在语音情感识别领域也开始有一些端到端的方法被提出。George等人~\cite{Trigeorgis2016Adieu}提出一种使用CNN从原始语音信号提取特征，然后通过LSTM-RNN捕获输入序列的时序信息并最终输出不同情感的后验概率，并且发现LSTM-RNN不同节点的输出和一些声学特征有很强的相关性。Satt等人~\cite{Satt2017Efficient}也采用了相似的神经网络结构，但不同的是他们从语谱图(Spectrogram)上抽取特征而非原始语音信号。他们认为在语谱图上可以更方便的进行去噪操作，并且在公开情感语音数据集IEMOCAP上取得了超过之前最好结果(state-of-the—art)的准确率。
+在语音情感识别领域也开始有一些端到端的方法被提出。George等人~\cite{Trigeorgis2016Adieu}提出一种使用CNN从原始语音信号提取特征，然后通过LSTM-RNN捕获输入序列的时序信息并最终输出不同情感的后验概率，并且发现LSTM-RNN不同节点的输出和一些声学特征有很强的相关性。Satt等人~\cite{Satt2017Efficient}也采用了相似的神经网络结构，但不同的是他们从语谱图(Spectrogram)上抽取特征而非原始语音信号。他们认为在语谱图上可以更方便的进行去噪操作，并且在公开情感语音数据集IEMOCAP上取得了超过之前最好结果(state-of-the-art)的准确率。这些基于端到端的语音情感识别的工作都表明，直接通过深度神经网络建立原始语音信号与情感类别之间的映射关系，能够取得超过传统识别框架的情感识别率。
 
 \section{本文的主要研究内容和贡献}
 \label{sec:content_contribution}

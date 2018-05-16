@@ -5,15 +5,17 @@
 \label{sec:emo_pair_base_framework_intro}
 特征选择作为传统语音情感识别中一个重要的部分，已经吸引了许多研究者的关注。因为情感是人类的主观感受，想要通过声音中的线索来反映当前说话人的情感状态是一个非常具有挑战性的任务。目前大多数的研究都旨在为所有的情感类别找到一个统一的特征集合，因为在一个共同的特征集合上构建分类器也是通常处理多分类问题的方法。但是一些研究结果~\cite{Lee2009Emotion}已经证明与不同的情感相关的声学特征也是不同的，也就是说为所有的情感选择相同的特征集合并不是一个很好的方法；相反，为特定的情感选择特定的特征集合可以取得更好的效果。
 
-基于上述原因，我们认为给不同的情感组合选择相关程度最高的的特征空间，保证这些情感在这样的特征空间上具有更高的可分性，是一个比较适合的实现方式。为此，我们提出了一种基于情感对的语音情感识别框架。本章的剩余部分是这样安排的：首先我们将介绍基于情感对的识别框架如何构建；接下来我们详细介绍情感对的定义，基于情感对的特征选择算法，和基于情感对的二分类模型；然后，我们将介绍决策融合的方法，包括基于投票的决策融合和基于情感空间的贝叶斯决策融合；最后，我们将本文所提方法与采用全局特征集合的方法、以及基于层次分类的方法进行实验对比。
+基于上述原因，我们认为给不同的情感组合选择相关程度最高的的特征空间，保证这些情感在这样的特征空间上具有更高的可分性，是一个比较适合的实现方式。为此，我们提出了一种基于情感对的语音情感识别框架。本章的剩余部分是这样安排的：首先我们将介绍基于情感对的识别框架如何构建；接下来我们详细介绍情感对的定义，基于情感对的特征选择算法，和基于情感对的二分类模型；然后，我们将介绍决策融合的方法，包括基于投票的决策融合和基于情感空间的贝叶斯决策融合；接下来，我们将本文所提方法与采用全局特征集合的方法、以及基于层次分类的方法进行实验对比；最后总结本章的内容。
 
 \section{基于情感对的识别框架}
 \label{sec:emo_pair_base_framework}
 我们将任意两种不同的情感组成情感对，然后为每一个情感对选择最相关的声学特征子集。这种特征选择方式将在很大程度上缩减需要处理的问题域，因为现在我们将之前需要为多种情感选择特征的问题转换为为两种情感选择特征的问题，剔除了许多无关的干扰特征。当为每一个情感对选择出对应的特征子集之后，我们将在每个特征子集上构建二分类器，这样就将原本的多分类问题转换为多个二分类问题。此时，又存在一个问题，就是最后我们期望的结果是一句话只得到一个识别结果，但现在每个二分类器都会得到一个结果，所以我们还需要再加入一个决策融合的步骤。最简单的决策融合方法就是采用投票策略，将所有二分类器的结果中出现次数最多的那个情感作  为最终的识别结果。但投票的策略存在两个缺点，一是会出现票数相同的问题，二是只有和目标情感相关的那些二分类结果才有贡献，其他的二分类结果只会产生干扰。为了避免这两个缺点，我们引入情感空间模型中不同情感之间的距离信息，通过贝叶斯分类器来完成决策融合的步骤，整个系统的流程图如图\ref{fig:emo_pair_flow}所示。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=11cm]{myfigures/emo_pair_flow}
+    \includegraphics[height=10cm]{myfigures/emo_pair_flow}
     \caption{基于情感对的识别框架}
     \label{fig:emo_pair_flow}
 \end{figure}
@@ -34,8 +36,10 @@
 我们基于情感对的方法则可以解决这两个问题，首先情感对的方法不需要任何的人工介入，因为情感对只是将任意两种情感组合到一起，即使需要加入新的情感类别，仅仅只是需要生成新的情感对，之前已经训练好的二分类模型仍然可以使用，这将大大减少训练时间。其次，情感对的方法不存在错误累积问题，因为不同的情感对之间的输入都是独立的，不会相互产生影响。此外，由于不同情感对之间没有依赖关系，所以训练可以并行完成，这将进一步提升训练速度。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=14cm]{myfigures/hierarchical_flow}
+    \includegraphics[height=12cm]{myfigures/hierarchical_flow}
     \caption{基于分层决策树的识别框架}
     \label{fig:hierarchical_flow}
 \end{figure}
@@ -50,12 +54,12 @@
 \label{sssec:feature_select_metrics}
 对于特征选择算法来说最重要的是要选取一种指标来衡量选出的特征的好坏。假设我们有一个含有$m$个样例的数据集$\{\mathbf{x}_k, y_k\}(k=1,...,m)$，每个样例包含$n$个输入特征$x_{k,i}(i=1,...,n)$和一个输出值$y_k$，第$i$个特征的评判指标通过函数$S(i)=f(\{x_{k,i}, y_k\}(k=1,...,m))$来定义。一般来说，我们定义$S(i)$越大的特征和任务目标越相关。为了方便下面的解释，我们再引入一些其他的定义：如果输入向量$\mathbf{x}$被看做来自一个潜在的多变量概率分布$\mathbf{X}$，我们定义$X_i$代表$\mathbf{x}$中第$i$个特征的随机变量。同样，$Y$代表输出值$y$的随机变量。进一步，我们定义$m$维的向量$\mathbf{x}_i$代表数据集中第$i$个特征的所有值，$m$维的向量$\mathbf{y}$代表数据集中所有样本的输出值。
 
-第一种特征评价指标叫做相关系数~\cite{Weston2003Use}，我们假设输出$y$是一个连续值，则泊松相关系数被定义为：
+第一种特征评价指标叫做相关系数~\cite{Weston2003Use}，我们假设输出$y$是一个连续值，则泊松相关系数被定义为式\ref{equ:pearson_cc}：
 \begin{equation}
 \label{equ:pearson_cc}
     \Re(i) = \frac{cov(X_i, Y)}{\sqrt{var(X_i)var(Y)}}
 \end{equation}
-$cov$代表协方差，$var$代表方差。通过统计方法对$\Re(i)$的估计$R(i)$可以表示为：
+$cov$代表协方差，$var$代表方差。通过统计方法对$\Re(i)$的估计$R(i)$可以表示为式\ref{equ:pearson_cc_real}：
 \begin{equation}
 \label{equ:pearson_cc_real}
     R(i) = \frac{\sum_{k=1}^{m}(x_{k,i} - \overline{x_i})(y_k - \overline{y})}{\sqrt{\sum_{k=1}^{m}(x_{k,i} - \overline{x_i})^2}\sum_{k=1}^{m}(y_k - \overline{y})^2}
@@ -64,12 +68,12 @@ $cov$代表协方差，$var$代表方差。通过统计方法对$\Re(i)$的估�
 
 第二种方法是采用单变量分类器~\cite{Forman2003An}，这种方法是将一个特征输入一个分类器中，然后将分类器的预测能力作为衡量指标。通常用来衡量分类器的预测能力的指标是错误率，例如对于二分类问题，错误的识别为正例的比率(Fasle Positive Rate, FPR)和错误识别为负例的比率(False Negative Rate, FNR)都可以被被定义为衡量标准，但通常为了平衡两种错误率，会选择ROC曲线(Receiver Operating Characteristic Curve)下区域的面积，也就是AUC(Area Under Curve)作为衡量的指标。
 
-第三种方法是利用信息学理论中的一些指标，最常使用的是变量和目标之间的互信息量~\cite{Forman2003An, Bekkerman2003Distributional}，定义如下：
+第三种方法是利用信息学理论中的一些指标，最常使用的是变量和目标之间的互信息量~\cite{Forman2003An, Bekkerman2003Distributional}，定义如下式\ref{equ:mutual_info}：
 \begin{equation}
 \label{equ:mutual_info}
     I(i) = \int_{x_i}\int_{y}p(x_i, y)log\frac{p(x_i, y)}{p(x_i)p(y)}dydx_i
 \end{equation}
-其中$p(x_i)$和$p(y)$是$x_i$和$y$的概率密度，$p(x_i, y)$是联合概率密度，$I(i)$是用来衡量变量$x_i$的概率密度和变量$y$的概率密度之间的相关性。连续变量的概率密度$p(x_i)$，$p(y)$和$p(x_i, y)$都是未知的，并且很难从数据集中估计出来。通常在估计连续变量的概率密度时，会先假设变量服从某种已知的概率分布，例如高斯分布，然后通过训练数据中变量的统计值来估计这种分布的参数。相对而言，离散变量的概率分布是更容易估计的，因为积分可以通过求和来替代，计算公式如下：
+其中$p(x_i)$和$p(y)$是$x_i$和$y$的概率密度，$p(x_i, y)$是联合概率密度，$I(i)$是用来衡量变量$x_i$的概率密度和变量$y$的概率密度之间的相关性。连续变量的概率密度$p(x_i)$，$p(y)$和$p(x_i, y)$都是未知的，并且很难从数据集中估计出来。通常在估计连续变量的概率密度时，会先假设变量服从某种已知的概率分布，例如高斯分布，然后通过训练数据中变量的统计值来估计这种分布的参数。相对而言，离散变量的概率分布是更容易估计的，因为积分可以通过求和来替代，计算公式\ref{equ:mutual_info_discrete}如下：
 \begin{equation}
 \label{equ:mutual_info_discrete}
     I(i) = \sum_{x_i}\sum_{y}P(X=x_i, Y=y)log\frac{P(X=x_i, Y=y)}{P(X=x_i)P(Y=y)}
@@ -103,8 +107,10 @@ $cov$代表协方差，$var$代表方差。通过统计方法对$\Re(i)$的估�
 SFFS的算法进行特征选择的流程如图\ref{fig:sffs_feature_select}所示，其算法原理是：假设我们选择的特征子集为$S$，初始时$S$为空，每轮迭代从总的特征集合$W$中选出一个子集$A$，使得$A$加入$S$后的的评价函数$J(S)$达到最优，然后再从$S$中选择一个子集$B$,使得$S$剔除$B$后的的评价函数$J(S)$达到最优。经过多轮迭代，评价函数$J(S)$达到我们设定的阈值后算法停止。SFFS被广泛的应用在许多的模式识别任务中，可以在可接受的时间范围内选择出近似最优的特征子集。我们将会为每个情感对都运行SFFS算法得到相关的特征子集。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=14cm]{myfigures/sffs_feature_select}
+    \includegraphics[height=12cm]{myfigures/sffs_feature_select}
     \caption{SFFS特征选择算法流程图}
     \label{fig:sffs_feature_select}
 \end{figure}
@@ -183,20 +189,24 @@ SVM是一种二分类模型，它的基本原理是在特征空间中寻找使�
 鉴于上一节提到的基于投票的决策融合方式存在的问题，我们又提出了一种新的基于情感空间模型~\cite{Cowie2002Emotion}的贝叶斯决策融合来避免这些问题。我们在\ref{ssec:continuous_space}节提到过关于维度情感空间的定义，心理学上将情感通过一个笛卡尔空间坐标系来表示，其中每一个坐标轴都表示一种心理学属性，而不同的情感类别会被映射到空间中不同的位置。常用的情感空间模型有二维情感空间(激活度-效价)和三维情感空间(激活度-效价-支配力)。这里采用三维情感空间模型来描述。假设当前需要识别4种情感：高兴，悲伤，愤怒和中性，这些情感在维度情感空间中的分布大致如图\ref{fig:emo_space_distance}所示。
 
 \begin{figure}[htb] % use float package if you want it here
+    \vspace{-0.8cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
     \includegraphics[height=10cm]{myfigures/emo_space_distance}
     \caption{情感空间模型中不同情感的位置}
     \label{fig:emo_space_distance}
 \end{figure}
 
-从图中我们可以看出不同的情感类别之间的距离并不相同，例如高兴和愤怒的距离明显比高兴和悲伤的距离要小，而这种情感类别之间的距离恰好反映了它们在情感体现与表征上的相似程度。回想一下日常生活中，当我们高兴地说话和愤怒地说话时，通常语气都比较急促，声音都比较大，但是当我们悲伤地说话时，声音一般都会比较缓慢而低沉。投票决策有个问题就是不包含目标情感的情感对的二分类结果对最后的决策并没有贡献，但现在有了维度情感空间的这种信息，我们可以认为这些不包含目标情感的情感对的二分类结果对最后的决策也是有帮助的。假设目标情感是高兴，对于愤怒-悲伤这个情感对来说，二分类结果是愤怒就更加支持最终的情感类别是高兴，是悲伤的话就更不支持最终的情感类别是高兴，所以二分类结果是愤怒的可能性会更大。这样的支持关系对其他的情感也是适用的。所以如果这种信息能够被有效地运用在决策融合当中，是有助于我们更好地判断最终情感类别的。
+从图中我们可以看出不同的情感类别之间的距离并不相同，例如高兴和愤怒的距离明显比高兴和悲伤的距离要小，而这种情感类别之间的距离恰好反映了它们在情感体现与表征上的相似程度。回想一下日常生活中，当我们高兴地说话和愤怒地说话时，通常语气都比较急促，声音都比较大，但是当我们悲伤地说话时，声音一般都会比较缓慢而低沉。投票决策有个问题就是不包含目标情感的情感对的二分类结果对最后的决策并没有贡献，但现在有了维度情感空间的这种信息，我们可以认为这些不包含目标情感的情感对的二分类结果对最后的决策也是有帮助的。
 
-对于这种支持关系，需要通过一种数学模型来对其进行量化表示，最为自然的就是想到贝叶斯概率模型，因为这种支持关系可以通过条件概率来建模。假设需要识别的情感类别集合为$E=\{e_i|i=1, 2,...,M\}$，情感对的所有二分类结果为$R = \{r_{e_ie_j}|e_i \neq e_j; r_{e_ie_j}, e_i, e_j \in E\}$。上面关于目标情感为高兴时，对愤怒-悲伤情感对的二分类结果影响程度的例子，通过概率的形式可以表示如下(H:高兴，A:愤怒，S:悲伤)：
+假设目标情感是高兴，对于愤怒-悲伤这个情感对来说，二分类结果是愤怒就更加支持最终的情感类别是高兴，是悲伤的话就更不支持最终的情感类别是高兴，所以二分类结果是愤怒的可能性会更大。这样的支持关系对其他的情感也是适用的。所以如果这种信息能够被有效地运用在决策融合当中，是有助于我们更好地判断最终情感类别的。当这种支持的关系被运用到最后的决策过程中，不包含目标情感的情感对的二分类结果就可以发挥作用，而不是像投票决策方法中不发挥作用。
+
+对于这种支持关系，需要通过一种数学模型来对其进行量化表示，最为自然的就是想到贝叶斯概率模型，因为这种支持关系可以通过条件概率来建模。假设需要识别的情感类别集合为$E=\{e_i|i=1, 2,...,M\}$，情感对的所有二分类结果为$R = \{r_{e_ie_j}|e_i \neq e_j; r_{e_ie_j}, e_i, e_j \in E\}$。上面关于目标情感为高兴时，对愤怒-悲伤情感对的二分类结果影响程度的例子，通过概率的形式可以表示如下式\ref{equ:decision_nb_1}(H:高兴，A:愤怒，S:悲伤)：
 \begin{equation}
 \label{equ:decision_nb_1}
     P(r_{A\_S}=A|H) > P(r_{A\_S}=S|H)
 \end{equation}
-基于贝叶斯定理，高兴和愤怒-悲伤情感对的二分类结果之间的关系可以被转换为下面的表示：
+基于贝叶斯定理的推导，高兴和愤怒-悲伤情感对的二分类结果之间的关系可以被转换为下面的公式\ref{equ:decision_nb_2}和公式\ref{equ:decision_nb_3}：
 \begin{equation}
 \label{equ:decision_nb_2}
     P(H|r_{A\_S}) = \frac{P(r_{A\_S}|H)P(H)}{P(r_{A\_S})}
@@ -330,7 +340,7 @@ SVM是一种二分类模型，它的基本原理是在特征空间中寻找使�
 \caption{混淆矩阵（全局特征选取 + BLR）}
 \label{tab:cm_global}
     % \begin{tabular}{p{6cm}<{\centering} p{6cm}<{\centering}}
-    \begin{tabularx}{\linewidth}{X|X|X|X|X}
+    \begin{tabularx}{\linewidth}{X<{\centering} X<{\centering} X<{\centering} X<{\centering} X<{\centering}}
         \toprule[1.5pt]
         \diagbox[width=5em,trim=l]{实际}{预测} & 中性 & 愤怒 & 高兴 & 悲伤 \\
         \midrule[1pt]
@@ -349,7 +359,7 @@ SVM是一种二分类模型，它的基本原理是在特征空间中寻找使�
 \caption{混淆矩阵（决策树分层特征选取 + BLR）}
 \label{tab:cm_hierarchical}
     % \begin{tabular}{p{6cm}<{\centering} p{6cm}<{\centering}}
-    \begin{tabularx}{\linewidth}{X|X|X|X|X}
+    \begin{tabularx}{\linewidth}{X<{\centering} X<{\centering} X<{\centering} X<{\centering} X<{\centering}}
         \toprule[1.5pt]
         \diagbox[width=5em,trim=l]{实际}{预测} & 中性 & 愤怒 & 高兴 & 悲伤 \\
         \midrule[1pt]
@@ -368,7 +378,7 @@ SVM是一种二分类模型，它的基本原理是在特征空间中寻找使�
 \caption{混淆矩阵（情感对特征选取 + BLR + 贝叶斯决策）}
 \label{tab:cm_emo_pair}
     % \begin{tabular}{p{6cm}<{\centering} p{6cm}<{\centering}}
-    \begin{tabularx}{\linewidth}{X|X|X|X|X}
+    \begin{tabularx}{\linewidth}{X<{\centering} X<{\centering} X<{\centering} X<{\centering} X<{\centering}}
         \toprule[1.5pt]
         \diagbox[width=5em,trim=l]{实际}{预测} & 中性 & 愤怒 & 高兴 & 悲伤 \\
         \midrule[1pt]
@@ -386,28 +396,36 @@ SVM是一种二分类模型，它的基本原理是在特征空间中寻找使�
 
 尽管在识别准确率上显示出考虑情感空间信息的贝叶斯决策方式能够取得更好的结果，但为了进一步证明情感对的二分类结果是符合我们关于情感空间的距离能够反映相似度的假设，下面的图\ref{fig:histogram_happy}、图\ref{fig:histogram_angry}、图\ref{fig:histogram_sad}、图\ref{fig:histogram_neutral}将分别展示出当目标情感不同时，所有二分类结果中不同情感的统计直方图。直方图的计算过程是找到测试集中特定目标情感的所有句子，把它们输入到所有情感对的二分类器，统计这些二分类结果中每一种情感出现的次数。统计直方图中，横轴代表不同的情感类别，纵轴代表不同情感在基于情感对的二分类情感识别结果中出现的次数占比，更高的比例表示该情感和目标情感的相似度更高。从图中可以看出，这种比例关系的确和情感空间中不同情感的距离是相关的，例如当目标情感是高兴时，愤怒的比例相对于悲伤的比例更高，而情感空间中也是愤怒和高兴地距离比悲伤和高兴的距离更近。这个统计直方图表明我们关于情感空间中的距离信息能够反映情感相似度的假设是正确的。
 
-\begin{figure}[htb] % use float package if you want it here
+\begin{figure}[!h] % use float package if you want it here
+    \vspace{-0cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
-    \includegraphics[height=10cm]{myfigures/histogram_happy}
+    \includegraphics[height=9cm]{myfigures/histogram_happy}
     \caption{二分类结果中不同情感类别的分布直方图（目标情感为高兴）}
     \label{fig:histogram_happy}
 \end{figure}
 
-\begin{figure}[htb] % use float package if you want it here
+\begin{figure}[!h] % use float package if you want it here
+    \vspace{-0.5cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
     \includegraphics[height=10cm]{myfigures/histogram_angry}
     \caption{二分类结果中不同情感类别的分布直方图（目标情感为愤怒）}
     \label{fig:histogram_angry}
 \end{figure}
 
-\begin{figure}[htb] % use float package if you want it here
+\begin{figure}[!h] % use float package if you want it here
+    \vspace{-2cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{0cm}   %调整图片标题与下文距离
     \centering
     \includegraphics[height=10cm]{myfigures/histogram_sad}
     \caption{二分类结果中不同情感类别的分布直方图（目标情感为悲伤）}
     \label{fig:histogram_sad}
 \end{figure}
 
-\begin{figure}[htb] % use float package if you want it here
+\begin{figure}[!h] % use float package if you want it here
+    \vspace{-4.5cm}  %调整图片与上文的垂直距离
+    \setlength{\belowcaptionskip}{-0cm}   %调整图片标题与下文距离
     \centering
     \includegraphics[height=10cm]{myfigures/histogram_neutral}
     \caption{二分类结果中不同情感类别的分布直方图（目标情感为中性）}
