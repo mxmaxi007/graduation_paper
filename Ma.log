@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  16 MAY 2018 12:31
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6600) (preloaded format=xelatex 2018.3.21)  17 MAY 2018 19:55
 entering extended mode
 **./Ma.tex
 (Ma.tex
@@ -2846,12 +2846,12 @@ Overfull \hbox (8.49458pt too wide) in paragraph at lines 156--158
  []
 
 [56]
-File: figures/myfigures/rnn_out_var_ang.jpg Graphic file (type bmp)
-<figures/myfigures/rnn_out_var_ang.jpg>
-File: figures/myfigures/rnn_out_var_hap.jpg Graphic file (type bmp)
-<figures/myfigures/rnn_out_var_hap.jpg>
-File: figures/myfigures/rnn_out_var_sad.jpg Graphic file (type bmp)
-<figures/myfigures/rnn_out_var_sad.jpg>
+File: figures/myfigures/rnn_out_var_ang.pdf Graphic file (type pdf)
+<use figures/myfigures/rnn_out_var_ang.pdf>
+File: figures/myfigures/rnn_out_var_hap.pdf Graphic file (type pdf)
+<use figures/myfigures/rnn_out_var_hap.pdf>
+File: figures/myfigures/rnn_out_var_sad.pdf Graphic file (type pdf)
+<use figures/myfigures/rnn_out_var_sad.pdf>
 ) [57] [58]
 \openout2 = `data/chap06.aux'.
 
@@ -2925,7 +2925,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  37127 strings out of 429758
- 702133 string characters out of 3180238
+ 702181 string characters out of 3180238
  783320 words of memory out of 3000000
  40437 multiletter control sequences out of 15000+200000
  665086 words of font info for 191 fonts, out of 3000000 for 9000
