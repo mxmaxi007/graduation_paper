@@ -41,7 +41,7 @@
 \subsection{变长卷积神经网络}
 \label{ssec:var_len_cnn}
 
-卷积神经网络(Convolution Neutral Network, CNN)是通常是处理定长的输入，特别是在计算机视觉领域。但实际上CNN本身只是在训练卷积核，而这些卷积核和输入的大小是无关的，因此CNN具备处理变长输入的能力。为了只保留有效的输入$\mathbf{s}1$对输出结果的影响，我们将采用掩码(Masking)去屏蔽补齐的无效输入$\mathbf{s}2$所产生的输出，如下面的公式所示：
+卷积神经网络(Convolution Neutral Network, CNN)是通常是处理定长的输入，特别是在计算机视觉领域。但实际上CNN本身只是在训练卷积核，而这些卷积核和输入的大小是无关的，因此CNN具备处理变长输入的能力。为了只保留有效的输入$\mathbf{s}1$对输出结果的影响，我们将采用掩码(Masking)去屏蔽补齐的无效输入$\mathbf{s}2$所产生的输出，如下面的公式\ref{equ:cnn_mask}所示：
 \begin{equation}
 \label{equ:cnn_mask}
     \mathbf{s}_{Conv} = Conv(\mathbf{s}) \bullet Mask(\mathbf{s})
