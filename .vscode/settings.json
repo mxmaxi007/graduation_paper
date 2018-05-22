@@ -4,6 +4,13 @@
       "name": "xelatex",
       "command": "xelatex",
       "args": [
+        "shuji"
+      ]
+    },
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
@@ -38,6 +45,7 @@
   "latex-workshop.latex.recipes": [{
     "name": "graduation_build",
     "tools": [
+      "xelatex",
       "xelatex",
       "bibtex",
       "xelatex",
